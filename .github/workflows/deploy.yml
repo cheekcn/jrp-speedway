@@ -23,6 +23,14 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Check secrets are present
+        run: |
+          echo "API key starts with: ${VITE_FIREBASE_API_KEY:0:8}..."
+          echo "Project ID: $VITE_FIREBASE_PROJECT_ID"
+        env:
+          VITE_FIREBASE_API_KEY: ${{ secrets.VITE_FIREBASE_API_KEY }}
+          VITE_FIREBASE_PROJECT_ID: ${{ secrets.VITE_FIREBASE_PROJECT_ID }}
+
       - name: Build
         run: npm run build
         env:
