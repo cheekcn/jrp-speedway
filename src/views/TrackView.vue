@@ -148,7 +148,7 @@ const specs = [
   { value: '45+ mph', label: 'Top Speed' },
   { value: '270°', label: 'Banked Corner' },
   { value: '4', label: 'Corner Count' },
-  { value: 'Indoor', label: 'Climate' },
+  { value: 'Outdoor', label: 'Track Type' },
   { value: '12+', label: 'Karts on Track' },
 ]
 

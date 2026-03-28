@@ -9,7 +9,7 @@
           <div class="brand-logo">
             <span class="text-red">JRP</span> SPEEDWAY
           </div>
-          <p>Tulsa's premier indoor karting experience. Race rental karts or compete in our league.</p>
+          <p>Tulsa's premier outdoor karting experience. Race rental karts or compete in our league.</p>
           <div class="social-row">
             <a href="#" aria-label="Facebook">FB</a>
             <a href="#" aria-label="Instagram">IG</a>

@@ -19,7 +19,7 @@
           <span class="text-red">WIN.</span>
         </h1>
         <p class="hero-sub">
-          JRP Speedway — Tulsa's most intense indoor karting experience.
+          JRP Speedway — Tulsa's most intense outdoor karting experience.
           Rental sessions, championship leagues, and competition karts for sale.
         </p>
         <div class="hero-actions">
@@ -33,7 +33,7 @@
           <div class="stat-divider"></div>
           <div class="stat"><span class="stat-val">270°</span><span class="stat-label">Banked Corner</span></div>
           <div class="stat-divider"></div>
-          <div class="stat"><span class="stat-val">INDOOR</span><span class="stat-label">Year-Round</span></div>
+          <div class="stat"><span class="stat-val">OUTDOOR</span><span class="stat-label">Year-Round</span></div>
         </div>
       </div>
       <div class="hero-scroll-hint">SCROLL</div>
