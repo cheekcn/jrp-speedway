@@ -28,58 +28,28 @@
               <span class="badge">Track Layout</span>
               <span class="text-mono text-muted" style="font-size:0.7rem">JRP — TULSA, OK</span>
             </div>
-            <svg viewBox="0 0 440 360" fill="none" xmlns="http://www.w3.org/2000/svg" class="track-svg">
-              <rect width="440" height="360" fill="var(--gray-900)"/>
-
-              <!-- ── TRACK SURFACE ── -->
-              <!-- Large outer loop: long top straight, sweeping right-hander, back straight, tight bottom hairpin, front straight -->
-              <path d="M 48 235 Q 48 145 72 100 Q 96 55 148 42 L 285 42 Q 355 42 378 100 Q 396 145 393 200 Q 390 235 368 252 Q 346 268 314 265 L 288 263 Q 268 262 258 275 Q 248 288 248 305 Q 248 326 228 333 L 200 335 Q 170 335 155 320 Q 140 305 140 285 Q 140 268 128 256 Q 115 244 94 244 L 68 244 Q 48 240 48 235 Z"
-                fill="#252525" stroke="var(--gray-600)" stroke-width="1"/>
-
-              <!-- ── TRACK ROAD (wide stroke = tarmac) ── -->
-              <!-- Outer perimeter loop -->
-              <path d="M 48 235 Q 48 145 72 100 Q 96 55 148 42 L 285 42 Q 355 42 378 100 Q 396 145 393 200 Q 390 235 368 252 Q 346 268 314 265 L 288 263"
-                stroke="var(--gray-700)" stroke-width="26" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-              <!-- Infield S-bend entry: peel off back straight into infield -->
-              <path d="M 314 265 L 288 263 Q 268 261 258 248 Q 248 234 258 222 L 274 212 Q 292 202 290 186 Q 288 170 272 163 L 212 158 Q 192 156 182 142 Q 172 128 180 114 L 194 104 Q 210 94 208 78 L 206 60"
-                stroke="var(--gray-700)" stroke-width="22" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-              <!-- Bottom hairpin and return -->
-              <path d="M 288 263 Q 268 262 258 275 Q 248 288 248 305 Q 248 326 228 333 L 200 335 Q 170 335 155 320 Q 140 305 140 285 Q 140 268 128 256 Q 115 244 94 244 L 68 244 Q 48 240 48 235"
-                stroke="var(--gray-700)" stroke-width="26" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-
-              <!-- ── INFIELD ROAD MARKINGS (white edge lines) ── -->
-              <path d="M 314 265 L 288 263 Q 268 261 258 248 Q 248 234 258 222 L 274 212 Q 292 202 290 186 Q 288 170 272 163 L 212 158 Q 192 156 182 142 Q 172 128 180 114 L 194 104 Q 210 94 208 78 L 206 60"
-                stroke="rgba(255,255,255,0.06)" stroke-width="22" fill="none" stroke-linecap="round"/>
-
-              <!-- ── RACING LINE (dashed red centerline) ── -->
-              <path d="M 48 235 Q 48 145 72 100 Q 96 55 148 42 L 285 42 Q 355 42 378 100 Q 396 145 393 200 Q 390 235 368 252 Q 346 268 314 265 L 288 263 Q 268 261 258 248 Q 248 234 258 222 L 274 212 Q 292 202 290 186 Q 288 170 272 163 L 212 158 Q 192 156 182 142 Q 172 128 180 114 L 194 104 Q 210 94 208 78"
-                stroke="var(--red)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.7" stroke-dasharray="7 5"/>
-              <path d="M 288 263 Q 268 262 258 275 Q 248 288 248 305 Q 248 326 228 333 L 200 335 Q 170 335 155 320 Q 140 305 140 285 Q 140 268 128 256 Q 115 244 94 244 L 68 244 Q 48 240 48 235"
-                stroke="var(--red)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.7" stroke-dasharray="7 5"/>
-
-              <!-- ── START / FINISH LINE ── -->
-              <line x1="48" y1="210" x2="48" y2="240" stroke="var(--yellow)" stroke-width="3.5"/>
-              <text x="8" y="222" fill="var(--yellow)" font-size="7.5" font-family="monospace" font-weight="bold">S/F</text>
-
-              <!-- ── DIRECTION ARROWS ── -->
-              <text x="205" y="40" fill="var(--red)" font-size="12" opacity="0.9">▶</text>
-              <text x="396" y="155" fill="var(--red)" font-size="12" opacity="0.9" transform="rotate(95 396 155)">▶</text>
-              <text x="196" y="342" fill="var(--red)" font-size="12" opacity="0.9" transform="rotate(190 196 342)">▶</text>
-              <text x="50" y="200" fill="var(--red)" font-size="12" opacity="0.9" transform="rotate(280 50 200)">▶</text>
-
-              <!-- ── LABELS ── -->
-              <text x="218" y="30" fill="var(--gray-500)" font-size="7.5" font-family="monospace" text-anchor="middle" letter-spacing="1">TOP STRAIGHT</text>
-              <text x="400" y="165" fill="var(--gray-500)" font-size="7.5" font-family="monospace" text-anchor="start">T1</text>
-              <text x="290" y="195" fill="var(--gray-500)" font-size="7.5" font-family="monospace" text-anchor="start">INFIELD</text>
-              <text x="290" y="205" fill="var(--gray-500)" font-size="7.5" font-family="monospace" text-anchor="start">CHICANE</text>
-              <text x="196" y="352" fill="var(--gray-500)" font-size="7.5" font-family="monospace" text-anchor="middle" letter-spacing="1">HAIRPIN</text>
-              <text x="28" y="185" fill="var(--gray-500)" font-size="7" font-family="monospace" text-anchor="middle">FRONT</text>
-              <text x="28" y="195" fill="var(--gray-500)" font-size="7" font-family="monospace" text-anchor="middle">STR.</text>
-
-              <!-- ── PIT LANE ── -->
-              <rect x="49" y="162" width="36" height="16" rx="1"
-                fill="none" stroke="var(--gray-600)" stroke-width="1" stroke-dasharray="3 2"/>
-              <text x="67" y="173" fill="var(--gray-500)" font-size="6.5" font-family="monospace" text-anchor="middle">PITS</text>
+            <svg viewBox="0 0 680 420" fill="none" xmlns="http://www.w3.org/2000/svg" class="track-svg">
+              <defs>
+                <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                  <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </marker>
+              </defs>
+              <!-- Shadow -->
+              <path d="M 120 80 C 80 80, 46 96, 46 130 C 46 164, 46 175, 46 200 C 46 225, 46 236, 46 270 C 46 304, 80 320, 120 320 L 560 320 C 596 320, 616 305, 616 280 C 616 255, 596 244, 560 244 L 260 244 C 240 244, 224 232, 224 214 C 224 206, 224 200, 224 200 C 224 200, 224 194, 224 186 C 224 168, 240 156, 260 156 L 560 156 C 596 156, 616 145, 616 120 C 616 95, 596 80, 560 80 Z"
+                fill="none" stroke="#111" stroke-width="62" stroke-linecap="round" stroke-linejoin="round"/>
+              <!-- Track surface -->
+              <path d="M 120 80 C 80 80, 46 96, 46 130 C 46 164, 46 175, 46 200 C 46 225, 46 236, 46 270 C 46 304, 80 320, 120 320 L 560 320 C 596 320, 616 305, 616 280 C 616 255, 596 244, 560 244 L 260 244 C 240 244, 224 232, 224 214 C 224 206, 224 200, 224 200 C 224 200, 224 194, 224 186 C 224 168, 240 156, 260 156 L 560 156 C 596 156, 616 145, 616 120 C 616 95, 596 80, 560 80 Z"
+                fill="none" stroke="#2d2d2d" stroke-width="54" stroke-linecap="round" stroke-linejoin="round"/>
+              <!-- Racing line -->
+              <path d="M 120 80 C 80 80, 46 96, 46 130 C 46 164, 46 175, 46 200 C 46 225, 46 236, 46 270 C 46 304, 80 320, 120 320 L 560 320 C 596 320, 616 305, 616 280 C 616 255, 596 244, 560 244 L 260 244 C 240 244, 224 232, 224 214 C 224 206, 224 200, 224 200 C 224 200, 224 194, 224 186 C 224 168, 240 156, 260 156 L 560 156 C 596 156, 616 145, 616 120 C 616 95, 596 80, 560 80 Z"
+                fill="none" stroke="#E8000F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 6" opacity="0.85"/>
+              <!-- Direction arrows -->
+              <line x1="440" y1="80" x2="300" y2="80" stroke="#E8000F" stroke-width="1.8" marker-end="url(#arr)" opacity="0.9"/>
+              <line x1="300" y1="200" x2="440" y2="200" stroke="#E8000F" stroke-width="1.8" marker-end="url(#arr)" opacity="0.9"/>
+              <line x1="440" y1="320" x2="300" y2="320" stroke="#E8000F" stroke-width="1.8" marker-end="url(#arr)" opacity="0.9"/>
+              <!-- S/F line — middle of top straight -->
+              <line x1="340" y1="53" x2="340" y2="107" stroke="#FFD000" stroke-width="3.5"/>
+              <text x="340" y="44" text-anchor="middle" font-family="monospace" font-size="9" fill="#FFD000" font-weight="bold">S/F</text>
             </svg>
           </div>
         </div>

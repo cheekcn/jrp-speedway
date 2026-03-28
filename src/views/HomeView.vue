@@ -78,37 +78,23 @@
           <div class="why-visual">
             <div class="track-diagram">
               <div class="track-label">JRP LAYOUT</div>
-              <svg viewBox="0 0 300 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Track surface fill -->
-                <path d="M 28 158 Q 28 96 48 67 Q 66 38 100 30 L 192 30 Q 238 30 255 67 Q 268 95 266 135 Q 264 158 248 170 Q 232 181 210 179 L 193 178 Q 180 177 174 187 Q 168 197 168 208 Q 168 222 156 227 L 138 229 Q 118 229 108 216 Q 98 203 98 190 Q 98 179 90 170 Q 81 162 66 162 L 46 162 Q 28 160 28 158 Z"
-                  fill="#1e1e1e" stroke="#333" stroke-width="1"/>
-
-                <!-- Outer loop road -->
-                <path d="M 28 158 Q 28 96 48 67 Q 66 38 100 30 L 192 30 Q 238 30 255 67 Q 268 95 266 135 Q 264 158 248 170 Q 232 181 210 179 L 193 178"
-                  stroke="#3a3a3a" stroke-width="18" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-
-                <!-- Infield chicane -->
-                <path d="M 210 179 L 193 178 Q 180 177 174 168 Q 168 158 175 150 L 186 143 Q 197 136 196 125 Q 195 114 184 109 L 144 106 Q 132 105 126 96 Q 120 87 126 78 L 134 72 Q 143 65 141 55 L 140 42"
-                  stroke="#3a3a3a" stroke-width="16" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-
-                <!-- Bottom hairpin -->
-                <path d="M 193 178 Q 180 177 174 187 Q 168 197 168 208 Q 168 222 156 227 L 138 229 Q 118 229 108 216 Q 98 203 98 190 Q 98 179 90 170 Q 81 162 66 162 L 46 162 Q 28 160 28 158"
-                  stroke="#3a3a3a" stroke-width="18" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-
-                <!-- Red racing line -->
-                <path d="M 28 158 Q 28 96 48 67 Q 66 38 100 30 L 192 30 Q 238 30 255 67 Q 268 95 266 135 Q 264 158 248 170 Q 232 181 210 179 L 193 178 Q 180 177 174 168 Q 168 158 175 150 L 186 143 Q 197 136 196 125 Q 195 114 184 109 L 144 106 Q 132 105 126 96 Q 120 87 126 78 L 134 72 Q 143 65 141 55"
-                  stroke="#E8000F" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.8" stroke-dasharray="5 4"/>
-                <path d="M 193 178 Q 180 177 174 187 Q 168 197 168 208 Q 168 222 156 227 L 138 229 Q 118 229 108 216 Q 98 203 98 190 Q 98 179 90 170 Q 81 162 66 162 L 46 162 Q 28 160 28 158"
-                  stroke="#E8000F" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.8" stroke-dasharray="5 4"/>
-
-                <!-- Start/finish -->
-                <line x1="28" y1="142" x2="28" y2="162" stroke="#FFD000" stroke-width="2.5"/>
-                <text x="32" y="155" fill="#FFD000" font-size="6.5" font-family="monospace">S/F</text>
-
-                <!-- Direction arrows -->
-                <text x="138" y="28" fill="#E8000F" font-size="10" opacity="0.85" text-anchor="middle">▶</text>
-                <text x="270" y="108" fill="#E8000F" font-size="10" opacity="0.85" transform="rotate(95 270 108)">▶</text>
-                <text x="136" y="237" fill="#E8000F" font-size="10" opacity="0.85" transform="rotate(185 136 237)">▶</text>
+              <svg viewBox="0 0 680 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <marker id="arr-h" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+                    <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </marker>
+                </defs>
+                <path d="M 120 80 C 80 80, 46 96, 46 130 C 46 164, 46 175, 46 200 C 46 225, 46 236, 46 270 C 46 304, 80 320, 120 320 L 560 320 C 596 320, 616 305, 616 280 C 616 255, 596 244, 560 244 L 260 244 C 240 244, 224 232, 224 214 C 224 206, 224 200, 224 200 C 224 200, 224 194, 224 186 C 224 168, 240 156, 260 156 L 560 156 C 596 156, 616 145, 616 120 C 616 95, 596 80, 560 80 Z"
+                  fill="none" stroke="#111" stroke-width="62" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M 120 80 C 80 80, 46 96, 46 130 C 46 164, 46 175, 46 200 C 46 225, 46 236, 46 270 C 46 304, 80 320, 120 320 L 560 320 C 596 320, 616 305, 616 280 C 616 255, 596 244, 560 244 L 260 244 C 240 244, 224 232, 224 214 C 224 206, 224 200, 224 200 C 224 200, 224 194, 224 186 C 224 168, 240 156, 260 156 L 560 156 C 596 156, 616 145, 616 120 C 616 95, 596 80, 560 80 Z"
+                  fill="none" stroke="#2d2d2d" stroke-width="54" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M 120 80 C 80 80, 46 96, 46 130 C 46 164, 46 175, 46 200 C 46 225, 46 236, 46 270 C 46 304, 80 320, 120 320 L 560 320 C 596 320, 616 305, 616 280 C 616 255, 596 244, 560 244 L 260 244 C 240 244, 224 232, 224 214 C 224 206, 224 200, 224 200 C 224 200, 224 194, 224 186 C 224 168, 240 156, 260 156 L 560 156 C 596 156, 616 145, 616 120 C 616 95, 596 80, 560 80 Z"
+                  fill="none" stroke="#E8000F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 6" opacity="0.85"/>
+                <line x1="440" y1="80" x2="300" y2="80" stroke="#E8000F" stroke-width="1.6" marker-end="url(#arr-h)" opacity="0.9"/>
+                <line x1="300" y1="200" x2="440" y2="200" stroke="#E8000F" stroke-width="1.6" marker-end="url(#arr-h)" opacity="0.9"/>
+                <line x1="440" y1="320" x2="300" y2="320" stroke="#E8000F" stroke-width="1.6" marker-end="url(#arr-h)" opacity="0.9"/>
+                <line x1="340" y1="53" x2="340" y2="107" stroke="#FFD000" stroke-width="3.5"/>
+                <text x="340" y="44" text-anchor="middle" font-family="monospace" font-size="9" fill="#FFD000" font-weight="bold">S/F</text>
               </svg>
             </div>
           </div>
