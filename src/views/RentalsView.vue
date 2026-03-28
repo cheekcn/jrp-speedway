@@ -123,7 +123,7 @@ const kartTypes = [
     color: '#E8000F',
     tagline: 'Full-power single-seat machines for serious drivers',
     specs: [
-      '5'0" (60") height minimum',
+      "5'0\" (60\") height minimum",
       'High-performance engine, 45+ mph',
       'Racing-spec bodywork and seat',
       'Transponder lap timing system',
@@ -134,7 +134,7 @@ const kartTypes = [
     name: '2-Seater Kart',
     tag: '2-SEAT',
     color: '#FFD000',
-    tagline: 'For drivers under 5'0" — ride with an instructor or parent',
+    tagline: "For drivers under 5'0\" — ride with an instructor or parent",
     specs: [
       'No height minimum',
       'All ages welcome',
@@ -184,7 +184,7 @@ const groupPackages = [
 const faqs = reactive([
   { q: 'Do I need to make a reservation?', a: 'Walk-ins are welcome during open hours, but reservations are recommended on weekends and for groups of 4+.', open: false },
   { q: 'What should I wear?', a: 'Wear comfortable athletic clothing and closed-toe shoes. Long hair must be tied back. Jewelry should be removed.', open: false },
-  { q: 'Can kids race?', a: 'Yes! Drivers under 5\'0" ride in our 2-seater kart with a parent or instructor alongside. Adult karts require a minimum height of 5\'0".', open: false },
+  { q: "Can kids race?", a: "Yes! Drivers under 5'0\" ride in our 2-seater kart with a parent or instructor alongside. Adult karts require a minimum height of 5'0\".", open: false },
   { q: 'Do you rent helmets?', a: 'Yes, rental helmets and neck collars are included in every session at no extra charge. You may bring your own SNELL/SA certified helmet.', open: false },
   { q: 'Can I bring spectators?', a: 'Absolutely. Spectators are free. We have a viewing area with seating above the track.', open: false },
 ])
