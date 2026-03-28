@@ -78,17 +78,37 @@
           <div class="why-visual">
             <div class="track-diagram">
               <div class="track-label">JRP LAYOUT</div>
-              <svg viewBox="0 0 300 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Simplified track outline -->
-                <path d="M 40 110 Q 40 50 120 40 L 220 40 Q 280 40 280 90 L 280 100 Q 280 130 260 140 L 180 150 Q 160 155 155 170 L 155 180 Q 155 200 130 200 L 100 200 Q 60 200 40 170 Z"
-                  stroke="#E8000F" stroke-width="12" fill="none" stroke-linejoin="round" opacity="0.9"/>
-                <path d="M 40 110 Q 40 50 120 40 L 220 40 Q 280 40 280 90 L 280 100 Q 280 130 260 140 L 180 150 Q 160 155 155 170 L 155 180 Q 155 200 130 200 L 100 200 Q 60 200 40 170 Z"
-                  stroke="white" stroke-width="1" fill="none" stroke-linejoin="round" opacity="0.08" stroke-dasharray="4 4"/>
+              <svg viewBox="0 0 300 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Track surface fill -->
+                <path d="M 28 158 Q 28 96 48 67 Q 66 38 100 30 L 192 30 Q 238 30 255 67 Q 268 95 266 135 Q 264 158 248 170 Q 232 181 210 179 L 193 178 Q 180 177 174 187 Q 168 197 168 208 Q 168 222 156 227 L 138 229 Q 118 229 108 216 Q 98 203 98 190 Q 98 179 90 170 Q 81 162 66 162 L 46 162 Q 28 160 28 158 Z"
+                  fill="#1e1e1e" stroke="#333" stroke-width="1"/>
+
+                <!-- Outer loop road -->
+                <path d="M 28 158 Q 28 96 48 67 Q 66 38 100 30 L 192 30 Q 238 30 255 67 Q 268 95 266 135 Q 264 158 248 170 Q 232 181 210 179 L 193 178"
+                  stroke="#3a3a3a" stroke-width="18" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+                <!-- Infield chicane -->
+                <path d="M 210 179 L 193 178 Q 180 177 174 168 Q 168 158 175 150 L 186 143 Q 197 136 196 125 Q 195 114 184 109 L 144 106 Q 132 105 126 96 Q 120 87 126 78 L 134 72 Q 143 65 141 55 L 140 42"
+                  stroke="#3a3a3a" stroke-width="16" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+                <!-- Bottom hairpin -->
+                <path d="M 193 178 Q 180 177 174 187 Q 168 197 168 208 Q 168 222 156 227 L 138 229 Q 118 229 108 216 Q 98 203 98 190 Q 98 179 90 170 Q 81 162 66 162 L 46 162 Q 28 160 28 158"
+                  stroke="#3a3a3a" stroke-width="18" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+                <!-- Red racing line -->
+                <path d="M 28 158 Q 28 96 48 67 Q 66 38 100 30 L 192 30 Q 238 30 255 67 Q 268 95 266 135 Q 264 158 248 170 Q 232 181 210 179 L 193 178 Q 180 177 174 168 Q 168 158 175 150 L 186 143 Q 197 136 196 125 Q 195 114 184 109 L 144 106 Q 132 105 126 96 Q 120 87 126 78 L 134 72 Q 143 65 141 55"
+                  stroke="#E8000F" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.8" stroke-dasharray="5 4"/>
+                <path d="M 193 178 Q 180 177 174 187 Q 168 197 168 208 Q 168 222 156 227 L 138 229 Q 118 229 108 216 Q 98 203 98 190 Q 98 179 90 170 Q 81 162 66 162 L 46 162 Q 28 160 28 158"
+                  stroke="#E8000F" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.8" stroke-dasharray="5 4"/>
+
                 <!-- Start/finish -->
-                <line x1="70" y1="108" x2="70" y2="170" stroke="#FFD000" stroke-width="2" opacity="0.8"/>
-                <text x="74" y="138" fill="#FFD000" font-size="7" font-family="monospace" opacity="0.8">S/F</text>
-                <!-- Arrow -->
-                <text x="130" y="100" fill="#E8000F" font-size="10" opacity="0.7">▶</text>
+                <line x1="28" y1="142" x2="28" y2="162" stroke="#FFD000" stroke-width="2.5"/>
+                <text x="32" y="155" fill="#FFD000" font-size="6.5" font-family="monospace">S/F</text>
+
+                <!-- Direction arrows -->
+                <text x="138" y="28" fill="#E8000F" font-size="10" opacity="0.85" text-anchor="middle">▶</text>
+                <text x="270" y="108" fill="#E8000F" font-size="10" opacity="0.85" transform="rotate(95 270 108)">▶</text>
+                <text x="136" y="237" fill="#E8000F" font-size="10" opacity="0.85" transform="rotate(185 136 237)">▶</text>
               </svg>
             </div>
           </div>
