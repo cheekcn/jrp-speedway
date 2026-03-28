@@ -13,7 +13,7 @@
       <div class="container">
         <div class="accent-line"></div>
         <h2 class="section-title">Our Rental Fleet</h2>
-        <p class="section-subtitle">We run two classes of rental karts to match every skill level.</p>
+        <p class="section-subtitle">Two kart options to suit every driver — solo or with a passenger.</p>
         <div class="grid-2" style="margin-top:0">
           <div v-for="kart in kartTypes" :key="kart.name" class="kart-card card">
             <div class="kart-header" :style="{ borderTopColor: kart.color }">
@@ -40,17 +40,21 @@
         <h2 class="section-title">Session Rates</h2>
         <div class="rates-grid">
           <div v-for="rate in rates" :key="rate.name" class="rate-card card" :class="{ featured: rate.featured }">
-            <div v-if="rate.featured" class="rate-popular">Best Value</div>
+            <div v-if="rate.featured" class="rate-popular">Most Popular</div>
             <h3>{{ rate.name }}</h3>
             <div class="rate-price">
               <span class="price-dollar">$</span>
               <span class="price-amount">{{ rate.price }}</span>
-              <span class="price-unit">/ {{ rate.unit }}</span>
+              <span class="price-unit">/ person</span>
             </div>
             <p class="rate-desc">{{ rate.desc }}</p>
             <ul class="rate-includes">
               <li v-for="inc in rate.includes" :key="inc">{{ inc }}</li>
             </ul>
+            <div class="two-seater-price">
+              <span class="ts-label">2-Seater</span>
+              <span class="ts-val">${{ rate.twoSeaterPrice }}</span>
+            </div>
           </div>
         </div>
       </div>
@@ -114,57 +118,60 @@ import { reactive } from 'vue'
 
 const kartTypes = [
   {
-    name: 'Junior Kart',
-    tag: 'JUNIOR',
-    color: '#FFD000',
-    tagline: 'For younger drivers and first-timers',
+    name: 'Adult Kart',
+    tag: 'ADULT',
+    color: '#E8000F',
+    tagline: 'Full-power single-seat machines for serious drivers',
     specs: [
-      '54" – 62" height requirement',
-      '200cc engine, ~25 mph',
-      'Smooth throttle for learning',
-      'Ages 8 and up',
-      'Helmet included',
+      '5'0" (60") height minimum',
+      'High-performance engine, 45+ mph',
+      'Racing-spec bodywork and seat',
+      'Transponder lap timing system',
+      'Helmet & neck brace included',
     ]
   },
   {
-    name: 'Adult / Pro Kart',
-    tag: 'ADULT',
-    color: '#E8000F',
-    tagline: 'Full-power machines for serious drivers',
+    name: '2-Seater Kart',
+    tag: '2-SEAT',
+    color: '#FFD000',
+    tagline: 'For drivers under 5'0" — ride with an instructor or parent',
     specs: [
-      '62"+ height, 16+ years old',
-      '390cc engine, 45+ mph',
-      'Racing-spec bodywork and seat',
-      'Transponder timing system',
-      'Helmet & neck brace included',
+      'No height minimum',
+      'All ages welcome',
+      'Instructor or parent rides along',
+      'Great intro to karting',
+      'Helmet included for both riders',
     ]
   }
 ]
 
 const rates = [
   {
-    name: 'Single Session',
-    price: '22',
+    name: '10 Minutes',
+    price: '20',
     unit: 'person',
-    desc: 'Jump in anytime during open track hours.',
-    includes: ['10-minute qualifying + 14-minute race', 'Helmet & safety gear', 'Printed lap times'],
-    featured: false
+    desc: 'Quick session — perfect for a taste of the track.',
+    includes: ['Adult kart single session', 'Helmet & safety gear', 'Lap timing included'],
+    featured: false,
+    twoSeaterPrice: '30'
   },
   {
-    name: 'Race Package',
-    price: '45',
+    name: '20 Minutes',
+    price: '40',
     unit: 'person',
-    desc: 'The full experience — three sessions, leaderboard tracking.',
-    includes: ['3 sessions (qualifying + 2 races)', 'Helmet & safety gear', 'Printed results sheet', 'Podium photo'],
-    featured: true
+    desc: 'Most popular — enough laps to find your rhythm.',
+    includes: ['Adult kart extended session', 'Helmet & safety gear', 'Lap timing included'],
+    featured: true,
+    twoSeaterPrice: '60'
   },
   {
-    name: '10-Session Punch Card',
-    price: '180',
-    unit: 'card',
-    desc: 'Best deal for regulars — use over multiple visits.',
-    includes: ['10 single sessions', 'Valid 12 months', 'Transferable', 'Member discount on extras'],
-    featured: false
+    name: '40 Minutes',
+    price: '50',
+    unit: 'person',
+    desc: 'Maximum seat time — the full endurance experience.',
+    includes: ['Adult kart long session', 'Helmet & safety gear', 'Lap timing included'],
+    featured: false,
+    twoSeaterPrice: '75'
   }
 ]
 
@@ -177,7 +184,7 @@ const groupPackages = [
 const faqs = reactive([
   { q: 'Do I need to make a reservation?', a: 'Walk-ins are welcome during open hours, but reservations are recommended on weekends and for groups of 4+.', open: false },
   { q: 'What should I wear?', a: 'Wear comfortable athletic clothing and closed-toe shoes. Long hair must be tied back. Jewelry should be removed.', open: false },
-  { q: 'Can kids race?', a: 'Yes! Drivers 54"–62" in height can use our Junior karts. Adult karts require 62"+ and 16+ years old.', open: false },
+  { q: 'Can kids race?', a: 'Yes! Drivers under 5\'0" ride in our 2-seater kart with a parent or instructor alongside. Adult karts require a minimum height of 5\'0".', open: false },
   { q: 'Do you rent helmets?', a: 'Yes, rental helmets and neck collars are included in every session at no extra charge. You may bring your own SNELL/SA certified helmet.', open: false },
   { q: 'Can I bring spectators?', a: 'Absolutely. Spectators are free. We have a viewing area with seating above the track.', open: false },
 ])
@@ -254,6 +261,27 @@ const faqs = reactive([
   position: relative;
 }
 .rate-includes li::before { content: '—'; position: absolute; left: 0; color: var(--red); }
+.two-seater-price {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--gray-700);
+}
+.ts-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+}
+.ts-val {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 900;
+  color: var(--yellow);
+}
 
 .group-layout {
   display: grid;
