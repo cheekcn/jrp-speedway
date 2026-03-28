@@ -20,9 +20,9 @@
               of all experience levels a structured, fair, and exciting championship to compete in.
             </p>
             <p style="color:var(--gray-200);line-height:1.8;margin-bottom:24px">
-              Each season spans 8–10 rounds with qualifying, heat races, and a final.
+              Each season consists of multiple rounds with practice, qualifying, heat race, and a final.
               Points are accumulated across the season, culminating in an end-of-year
-              championship shootout with cash prizes and trophies.
+              championship shootout with trophies awarded to class winners.
             </p>
             <a href="mailto:league@jrpspeedway.com" class="btn btn-primary">Register Interest</a>
           </div>
@@ -99,27 +99,7 @@
       </div>
     </section>
 
-    <!-- Affiliation -->
-    <section class="section" style="background:var(--gray-900);border-top:1px solid var(--gray-700)">
-      <div class="container">
-        <div class="affiliation-card card">
-          <div class="aff-content">
-            <span class="badge badge-yellow" style="margin-bottom:16px">Series Affiliation</span>
-            <h2>Texas Sprint<br>Racing Series (TSRS)</h2>
-            <p>
-              JRP Speedway is a proud affiliated venue for the Texas Sprint Racing Series —
-              a regional karting championship recognized across TX and OK. TSRS events at JRP
-              count toward the regional points standings, offering drivers a pathway to
-              compete at the highest levels of regional sprint karting.
-            </p>
-            <a href="https://texassprintracingseries.com" target="_blank" rel="noopener" class="btn btn-outline" style="margin-top:20px">
-              Visit TSRS Website →
-            </a>
-          </div>
-          <div class="aff-flag">🏁</div>
-        </div>
-      </div>
-    </section>
+
 
     <!-- CTA -->
     <section class="section">
@@ -129,7 +109,7 @@
           Register for the upcoming season or show up to our next arrive-and-drive to try it out.
         </p>
         <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
-          <a href="mailto:league@jrpspeedway.com" class="btn btn-primary">Join the League</a>
+          <a href="mailto:info@jrpspeedway.com" class="btn btn-primary">Join the League</a>
           <RouterLink to="/events" class="btn btn-outline">See Event Calendar</RouterLink>
         </div>
       </div>
@@ -141,49 +121,73 @@
 const highlights = [
   { val: '8–10', label: 'Rounds per Season' },
   { val: '3', label: 'Racing Classes' },
-  { val: 'Cash +', label: 'Championship Prize' },
-  { val: 'TSRS', label: 'Affiliated Series' },
+  { val: '🏆', label: 'Championship Trophy' },
+  { val: 'JRP', label: 'In-House Championship' },
 ]
 
 const classes = [
   {
-    name: 'Cadet / Junior',
+    name: 'Kid Kart',
     color: '#FFD000',
-    desc: 'Entry-level class for developing drivers age 8–15.',
+    desc: 'Entry-level class for the youngest drivers just getting started.',
     specs: [
-      { k: 'Kart', v: 'Junior 200cc' },
-      { k: 'Age', v: '8–15' },
-      { k: 'License', v: 'JRP Junior' },
+      { k: 'Kart', v: 'Kid Kart' },
+      { k: 'Category', v: 'Junior' },
     ]
   },
   {
-    name: 'Amateur / Arrive & Drive',
+    name: 'Junior I',
+    color: '#FFD000',
+    desc: 'Beginner junior class for developing racers.',
+    specs: [
+      { k: 'Kart', v: 'Junior' },
+      { k: 'Category', v: 'Junior' },
+    ]
+  },
+  {
+    name: 'Junior II',
     color: '#4A90D9',
-    desc: 'Open-wheel league for adults new to competition racing.',
+    desc: 'Intermediate junior class for experienced young drivers.',
     specs: [
-      { k: 'Kart', v: 'House Pro Kart' },
-      { k: 'Age', v: '16+' },
-      { k: 'License', v: 'None required' },
+      { k: 'Kart', v: 'Junior' },
+      { k: 'Category', v: 'Junior' },
     ]
   },
   {
-    name: 'Pro / Open',
+    name: 'LO206 Light',
     color: '#E8000F',
-    desc: 'Full competition with driver-owned equipment. TSRS-eligible rounds.',
+    desc: 'Briggs LO206 engine class for lighter senior drivers.',
     specs: [
-      { k: 'Kart', v: 'Own / leased' },
-      { k: 'Age', v: '16+' },
-      { k: 'License', v: 'TSRS recommended' },
+      { k: 'Engine', v: 'Briggs LO206' },
+      { k: 'Category', v: 'Senior' },
     ]
-  }
+  },
+  {
+    name: 'LO206 Senior',
+    color: '#E8000F',
+    desc: 'Briggs LO206 engine class for senior drivers.',
+    specs: [
+      { k: 'Engine', v: 'Briggs LO206' },
+      { k: 'Category', v: 'Senior' },
+    ]
+  },
+  {
+    name: 'LO206 Heavy',
+    color: '#E8000F',
+    desc: 'Briggs LO206 engine class for heavier senior drivers.',
+    specs: [
+      { k: 'Engine', v: 'Briggs LO206' },
+      { k: 'Category', v: 'Senior' },
+    ]
+  },
 ]
 
 const steps = [
-  { name: 'Open Practice', desc: '30 minutes of free practice to dial in your kart and learn the track.' },
-  { name: 'Qualifying', desc: 'Single timed lap. Sets grid positions for the heat races.' },
-  { name: 'Heat Race', desc: '12-lap inverted-grid heat to build points and set the final grid.' },
-  { name: 'Pre-Final', desc: '15-lap race for the full grid.' },
-  { name: 'Final', desc: '18-lap championship race. Points awarded. Trophies for P1–P3.' },
+  { name: 'Practice — Round 1', desc: 'First practice session to get familiar with the track and dial in your setup.' },
+  { name: 'Practice — Round 2', desc: 'Second practice session to refine your lines and kart settings before qualifying.' },
+  { name: 'Qualifying', desc: 'Timed session to set grid positions for the heat race.' },
+  { name: 'Heat Race', desc: 'Points-paying heat race. Results help set the grid for the final.' },
+  { name: 'Final Race', desc: 'Championship final. Points awarded. Trophies presented to P1–P3.' },
 ]
 
 const pointsTable = [
@@ -289,16 +293,7 @@ const pointsTable = [
 .trophy { font-size: 1rem; }
 .pt-pts { font-family: var(--font-display); font-size: 1.1rem; font-weight: 900; color: var(--red); }
 
-.affiliation-card {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 48px;
-  gap: 32px;
-}
-.aff-content h2 { font-size: 2rem; margin-bottom: 16px; }
-.aff-content p { color: var(--gray-200); max-width: 500px; line-height: 1.7; font-size: 0.9rem; }
-.aff-flag { font-size: 6rem; opacity: 0.3; }
+
 
 @media (max-width: 900px) {
   .league-intro-layout, .format-layout { grid-template-columns: 1fr; gap: 40px; }

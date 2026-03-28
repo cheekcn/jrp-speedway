@@ -68,15 +68,14 @@
             <div class="accent-line"></div>
             <h2 class="section-title">Groups &<br><span class="text-red">Private Events</span></h2>
             <p style="color:var(--gray-200);margin-bottom:24px;line-height:1.7">
-              Planning a birthday, corporate outing, bachelor party, or team building event?
-              JRP can run exclusive private sessions with the track all to yourself.
+              Planning a birthday, corporate outing, bachelor party, or team building event? JRP offers exclusive private sessions with the track all to yourself. Contact us to discuss availability and book your event.
             </p>
             <ul class="feature-list">
               <li><span class="check">✓</span>Exclusive track access</li>
               <li><span class="check">✓</span>Dedicated race director</li>
               <li><span class="check">✓</span>Custom race format</li>
               <li><span class="check">✓</span>Trophy for the winner</li>
-              <li><span class="check">✓</span>Catering coordination available</li>
+              <li><span class="check">✓</span>Contact us to book — pricing varies by event</li>
             </ul>
             <a href="mailto:events@jrpspeedway.com" class="btn btn-primary" style="margin-top:28px">
               Inquire About Private Events
@@ -86,7 +85,7 @@
             <div v-for="pkg in groupPackages" :key="pkg.name" class="pkg-card card">
               <span class="pkg-icon">{{ pkg.icon }}</span>
               <h4>{{ pkg.name }}</h4>
-              <span class="pkg-price">From ${{ pkg.from }}</span>
+              <a href="mailto:info@jrpspeedway.com" class="btn btn-outline" style="padding:6px 14px;font-size:0.75rem;margin-top:4px">Contact for Pricing</a>
               <p>{{ pkg.desc }}</p>
             </div>
           </div>
@@ -126,8 +125,8 @@ const kartTypes = [
       "5'0\" (60\") height minimum",
       'High-performance engine, 45+ mph',
       'Racing-spec bodywork and seat',
-      'Transponder lap timing system',
-      'Helmet & neck brace included',
+      'Helmet included (free)',
+      'No neck brace provided — bring your own or purchase onsite',
     ]
   },
   {
@@ -151,7 +150,7 @@ const rates = [
     price: '20',
     unit: 'person',
     desc: 'Quick session — perfect for a taste of the track.',
-    includes: ['Adult kart single session', 'Helmet & safety gear', 'Lap timing included'],
+    includes: ['Adult kart single session', 'Helmet included free', 'No neck brace provided'],
     featured: false,
     twoSeaterPrice: '30'
   },
@@ -160,7 +159,7 @@ const rates = [
     price: '40',
     unit: 'person',
     desc: 'Most popular — enough laps to find your rhythm.',
-    includes: ['Adult kart extended session', 'Helmet & safety gear', 'Lap timing included'],
+    includes: ['Adult kart extended session', 'Helmet included free', 'No neck brace provided'],
     featured: true,
     twoSeaterPrice: '60'
   },
@@ -169,23 +168,23 @@ const rates = [
     price: '50',
     unit: 'person',
     desc: 'Maximum seat time — the full endurance experience.',
-    includes: ['Adult kart long session', 'Helmet & safety gear', 'Lap timing included'],
+    includes: ['Adult kart long session', 'Helmet included free', 'No neck brace provided'],
     featured: false,
     twoSeaterPrice: '75'
   }
 ]
 
 const groupPackages = [
-  { icon: '🎂', name: 'Birthday Bash', from: 149, desc: 'Up to 8 racers, 2 sessions each' },
-  { icon: '💼', name: 'Corporate Race Day', from: 499, desc: 'Full day, up to 20 drivers, trophies' },
-  { icon: '🏆', name: 'Full Track Rental', from: 299, desc: 'Exclusive 2-hour track hire' },
+  { icon: '🎂', name: 'Birthday Parties', desc: 'Make your birthday unforgettable on the track' },
+  { icon: '💼', name: 'Corporate Events', desc: 'Team building, client entertainment, and more' },
+  { icon: '🏆', name: 'Private Track Hire', desc: 'Exclusive track access for your group' },
 ]
 
 const faqs = reactive([
   { q: 'Do I need to make a reservation?', a: 'Walk-ins are welcome during open hours, but reservations are recommended on weekends and for groups of 4+.', open: false },
   { q: 'What should I wear?', a: 'Wear comfortable athletic clothing and closed-toe shoes. Long hair must be tied back. Jewelry should be removed.', open: false },
   { q: "Can kids race?", a: "Yes! Drivers under 5'0\" ride in our 2-seater kart with a parent or instructor alongside. Adult karts require a minimum height of 5'0\".", open: false },
-  { q: 'Do you rent helmets?', a: 'Yes, rental helmets and neck collars are included in every session at no extra charge. You may bring your own SNELL/SA certified helmet.', open: false },
+  { q: 'Do you provide helmets?', a: 'Yes, helmets are provided free with every session. Neck braces are not provided — you are welcome to bring your own or purchase one onsite.', open: false },
   { q: 'Can I bring spectators?', a: 'Absolutely. Spectators are free. We have a viewing area with seating above the track.', open: false },
 ])
 </script>

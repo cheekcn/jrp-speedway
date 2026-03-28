@@ -69,7 +69,7 @@
           </div>
         </div>
         <p class="text-muted" style="margin-top:20px;font-size:0.85rem">
-          * Hours subject to change for private events. Check social media for updates.
+          * Hours subject to change for special events. Check social media or call ahead.
         </p>
       </div>
     </section>
@@ -86,14 +86,14 @@
                 <span class="contact-icon">📍</span>
                 <div>
                   <strong>Address</strong>
-                  <p>1234 Race Track Blvd<br>Tulsa, OK 74101</p>
+                  <p>5920 W 51st St<br>Tulsa, OK 74107</p>
                 </div>
               </div>
               <div class="contact-item">
                 <span class="contact-icon">📞</span>
                 <div>
                   <strong>Phone</strong>
-                  <p><a href="tel:+19185550100">(918) 555-0100</a></p>
+                  <p><a href="tel:+19184467000">(918) 446-7000</a></p>
                 </div>
               </div>
               <div class="contact-item">
@@ -115,7 +115,7 @@
           <div class="map-placeholder">
             <div class="map-inner">
               <span>🗺</span>
-              <p>1234 Race Track Blvd, Tulsa OK</p>
+              <p>5920 W 51st St, Tulsa OK</p>
               <a href="https://maps.google.com/?q=Tulsa+Oklahoma" target="_blank" rel="noopener" class="btn btn-outline" style="margin-top:12px">
                 Open in Maps
               </a>
@@ -153,13 +153,13 @@ const specs = [
 ]
 
 const hours = [
-  { day: 'Monday', time: 'Closed', note: 'Private Events Available' },
-  { day: 'Tuesday', time: '3:00 PM – 10:00 PM' },
-  { day: 'Wednesday', time: '3:00 PM – 10:00 PM' },
-  { day: 'Thursday', time: '3:00 PM – 10:00 PM' },
-  { day: 'Friday', time: '12:00 PM – 12:00 AM' },
-  { day: 'Saturday', time: '10:00 AM – 12:00 AM' },
-  { day: 'Sunday', time: '11:00 AM – 9:00 PM' },
+  { day: 'Monday', time: '9:00 AM – 6:00 PM' },
+  { day: 'Tuesday', time: '9:00 AM – 6:00 PM' },
+  { day: 'Wednesday', time: '9:00 AM – 6:00 PM' },
+  { day: 'Thursday', time: '9:00 AM – 6:00 PM' },
+  { day: 'Friday', time: '9:00 AM – 6:00 PM' },
+  { day: 'Saturday', time: '9:00 AM – 6:00 PM' },
+  { day: 'Sunday', time: 'Closed' },
 ]
 
 const rules = [
@@ -276,21 +276,11 @@ const rules = [
 }
 .contact-item a:hover { color: var(--red); }
 
-.map-placeholder {
-  background: var(--gray-800);
-  border: 1px solid var(--gray-700);
+.map-embed {
   border-radius: 2px;
-  min-height: 280px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;
+  border: 1px solid var(--gray-700);
 }
-.map-inner {
-  text-align: center;
-  color: var(--gray-400);
-}
-.map-inner span { font-size: 3rem; display: block; margin-bottom: 12px; }
-.map-inner p { font-size: 0.9rem; }
 
 .rule-card {
   padding: 28px 24px;

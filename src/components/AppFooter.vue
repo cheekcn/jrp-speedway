@@ -29,9 +29,9 @@
 
         <div class="footer-col">
           <h4>Contact</h4>
-          <a href="tel:+19185550100">📞 (918) 555-0100</a>
+          <a href="tel:+19184467000">📞 (918) 446-7000</a>
           <a href="mailto:info@jrpspeedway.com">✉ info@jrpspeedway.com</a>
-          <p class="addr">1234 Race Track Blvd<br>Tulsa, OK 74101</p>
+          <p class="addr">5920 W 51st St<br>Tulsa, OK 74107</p>
         </div>
 
         <div class="footer-col">
