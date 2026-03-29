@@ -46,7 +46,7 @@
               <!-- Direction arrows -->
               <line x1="440" y1="80" x2="300" y2="80" stroke="#E8000F" stroke-width="1.8" marker-end="url(#arr)" opacity="0.9"/>
               <line x1="300" y1="200" x2="440" y2="200" stroke="#E8000F" stroke-width="1.8" marker-end="url(#arr)" opacity="0.9"/>
-              <line x1="440" y1="320" x2="300" y2="320" stroke="#E8000F" stroke-width="1.8" marker-end="url(#arr)" opacity="0.9"/>
+              <line x1="300" y1="320" x2="440" y2="320" stroke="#E8000F" stroke-width="1.8" marker-end="url(#arr)" opacity="0.9"/>
               <!-- S/F line — middle of top straight -->
               <line x1="340" y1="53" x2="340" y2="107" stroke="#FFD000" stroke-width="3.5"/>
               <text x="340" y="44" text-anchor="middle" font-family="monospace" font-size="9" fill="#FFD000" font-weight="bold">S/F</text>

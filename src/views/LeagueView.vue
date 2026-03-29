@@ -20,7 +20,7 @@
               of all experience levels a structured, fair, and exciting championship to compete in.
             </p>
             <p style="color:var(--gray-200);line-height:1.8;margin-bottom:24px">
-              Each season consists of multiple rounds with practice, qualifying, heat race, and a final.
+              Each season consists of 14 rounds with practice, qualifying, heat race, and a final.
               Points are accumulated across the season, culminating in an end-of-year
               championship shootout with trophies awarded to class winners.
             </p>
@@ -119,8 +119,8 @@
 
 <script setup>
 const highlights = [
-  { val: '8–10', label: 'Rounds per Season' },
-  { val: '3', label: 'Racing Classes' },
+  { val: '14', label: 'Rounds per Season' },
+  { val: '6', label: 'Racing Classes' },
   { val: '🏆', label: 'Championship Trophy' },
   { val: 'JRP', label: 'In-House Championship' },
 ]
@@ -187,7 +187,7 @@ const steps = [
   { name: 'Practice — Round 2', desc: 'Second practice session to refine your lines and kart settings before qualifying.' },
   { name: 'Qualifying', desc: 'Timed session to set grid positions for the heat race.' },
   { name: 'Heat Race', desc: 'Points-paying heat race. Results help set the grid for the final.' },
-  { name: 'Final Race', desc: 'Championship final. Points awarded. Trophies presented to P1–P3.' },
+  { name: 'Final Race', desc: 'Championship final. Points awarded.' },
 ]
 
 const pointsTable = [
