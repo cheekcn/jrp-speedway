@@ -14,7 +14,7 @@
   font-size: clamp(8rem, 20vw, 16rem);
   font-weight: 900;
   line-height: 1;
-  color: var(--red);
+  color: var(--blue);
   opacity: 0.15;
   margin-bottom: 8px;
 }

@@ -57,7 +57,7 @@
     </section>
 
     <!-- Hours -->
-    <section class="section" style="background:var(--gray-900);border-top:1px solid var(--gray-700)">
+    <section class="section" style="background:var(--off-white);border-top:1px solid var(--gray-700)">
       <div class="container">
         <div class="accent-line"></div>
         <h2 class="section-title">Hours of Operation</h2>
@@ -126,7 +126,7 @@
     </section>
 
     <!-- Rules & Info -->
-    <section class="section" style="background:var(--gray-900);border-top:1px solid var(--gray-700)">
+    <section class="section" style="background:var(--off-white);border-top:1px solid var(--gray-700)">
       <div class="container">
         <div class="accent-line"></div>
         <h2 class="section-title">Need to Know</h2>
@@ -190,7 +190,7 @@ const rules = [
   margin-top: 32px;
 }
 .spec-item {
-  background: var(--gray-800);
+  background: var(--white);
   padding: 20px 16px;
   display: flex;
   flex-direction: column;
@@ -200,7 +200,7 @@ const rules = [
   font-family: var(--font-display);
   font-size: 1.5rem;
   font-weight: 900;
-  color: var(--red);
+  color: var(--blue);
 }
 .spec-label {
   font-size: 0.75rem;
@@ -267,14 +267,14 @@ const rules = [
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--red);
+  color: var(--blue);
   margin-bottom: 4px;
 }
 .contact-item p, .contact-item a {
   font-size: 0.9rem;
   color: var(--gray-200);
 }
-.contact-item a:hover { color: var(--red); }
+.contact-item a:hover { color: var(--blue); }
 
 .map-embed {
   border-radius: 2px;

@@ -92,7 +92,7 @@ const twShare = computed(() => `https://twitter.com/intent/tweet?url=${pageUrl.v
   align-items: flex-end;
   position: relative;
   overflow: hidden;
-  background: var(--gray-900);
+  background: var(--off-white);
 }
 .post-hero-bg {
   position: absolute;
@@ -118,7 +118,7 @@ const twShare = computed(() => `https://twitter.com/intent/tweet?url=${pageUrl.v
   display: block;
   transition: color 0.15s;
 }
-.back-link:hover { color: var(--red); }
+.back-link:hover { color: var(--blue); }
 .post-meta {
   display: flex;
   align-items: center;
@@ -163,7 +163,7 @@ const twShare = computed(() => `https://twitter.com/intent/tweet?url=${pageUrl.v
   color: var(--white);
 }
 .post-body :deep(strong) { color: var(--white); }
-.post-body :deep(a) { color: var(--red); text-decoration: underline; }
+.post-body :deep(a) { color: var(--blue); text-decoration: underline; }
 .post-body :deep(ul), .post-body :deep(ol) {
   padding-left: 24px;
   margin-bottom: 20px;
@@ -178,7 +178,7 @@ const twShare = computed(() => `https://twitter.com/intent/tweet?url=${pageUrl.v
   gap: 16px;
 }
 .sidebar-card {
-  background: var(--gray-800);
+  background: var(--white);
   border: 1px solid var(--gray-700);
   border-radius: 2px;
   padding: 20px;
@@ -188,7 +188,7 @@ const twShare = computed(() => `https://twitter.com/intent/tweet?url=${pageUrl.v
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--red);
+  color: var(--blue);
   margin-bottom: 12px;
 }
 .share-btns { display: flex; gap: 8px; }
@@ -217,7 +217,7 @@ const twShare = computed(() => `https://twitter.com/intent/tweet?url=${pageUrl.v
   text-transform: uppercase;
   transition: color 0.15s;
 }
-.sidebar-back:hover { color: var(--red); }
+.sidebar-back:hover { color: var(--blue); }
 .sidebar-cta { display: flex; flex-direction: column; }
 .sidebar-cta strong {
   font-family: var(--font-display);

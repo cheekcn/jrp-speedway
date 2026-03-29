@@ -34,7 +34,7 @@
     </section>
 
     <!-- Rates -->
-    <section class="section" style="background:var(--gray-900);border-top:1px solid var(--gray-700)">
+    <section class="section" style="background:var(--off-white);border-top:1px solid var(--gray-700)">
       <div class="container">
         <div class="accent-line"></div>
         <h2 class="section-title">Session Rates</h2>
@@ -66,7 +66,7 @@
         <div class="group-layout">
           <div>
             <div class="accent-line"></div>
-            <h2 class="section-title">Groups &<br><span class="text-red">Private Events</span></h2>
+            <h2 class="section-title">Groups &<br><span class="text-blue">Private Events</span></h2>
             <p style="color:var(--gray-200);margin-bottom:24px;line-height:1.7">
               Planning a birthday, corporate outing, bachelor party, or team building event? JRP offers exclusive private sessions with the track all to yourself. Contact us to discuss availability and book your event.
             </p>
@@ -94,7 +94,7 @@
     </section>
 
     <!-- FAQ -->
-    <section class="section" style="background:var(--gray-900);border-top:1px solid var(--gray-700)">
+    <section class="section" style="background:var(--off-white);border-top:1px solid var(--gray-700)">
       <div class="container" style="max-width:760px">
         <div class="accent-line"></div>
         <h2 class="section-title">FAQs</h2>
@@ -210,7 +210,7 @@ const faqs = reactive([
 .kart-body { padding: 0 24px 24px; }
 .kart-body ul { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-top: 8px; }
 .kart-body li { display: flex; gap: 10px; font-size: 0.9rem; color: var(--gray-200); }
-.kart-body li span { color: var(--red); font-weight: 700; }
+.kart-body li span { color: var(--blue); font-weight: 700; }
 
 .rates-grid {
   display: grid;
@@ -220,15 +220,15 @@ const faqs = reactive([
 }
 .rate-card { padding: 28px 24px; position: relative; }
 .rate-card.featured {
-  border-color: var(--red);
-  box-shadow: 0 0 0 1px var(--red), 0 12px 40px rgba(232,0,15,0.15);
+  border-color: var(--blue);
+  box-shadow: 0 0 0 1px var(--red), 0 12px 40px rgba(12,59,122,0.15);
 }
 .rate-popular {
   position: absolute;
   top: -12px;
   left: 50%;
   transform: translateX(-50%);
-  background: var(--red);
+  background: var(--blue);
   color: white;
   font-family: var(--font-mono);
   font-size: 0.65rem;
@@ -248,7 +248,7 @@ const faqs = reactive([
   gap: 2px;
   margin-bottom: 12px;
 }
-.price-dollar { color: var(--red); font-family: var(--font-display); font-size: 1.2rem; }
+.price-dollar { color: var(--blue); font-family: var(--font-display); font-size: 1.2rem; }
 .price-amount { font-family: var(--font-display); font-size: 3rem; font-weight: 900; line-height: 1; }
 .price-unit { color: var(--gray-400); font-size: 0.85rem; }
 .rate-desc { font-size: 0.85rem; color: var(--gray-400); margin-bottom: 16px; }
@@ -259,7 +259,7 @@ const faqs = reactive([
   padding-left: 14px;
   position: relative;
 }
-.rate-includes li::before { content: '—'; position: absolute; left: 0; color: var(--red); }
+.rate-includes li::before { content: '—'; position: absolute; left: 0; color: var(--blue); }
 .two-seater-price {
   display: flex;
   align-items: center;
@@ -290,12 +290,12 @@ const faqs = reactive([
 }
 .feature-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
 .feature-list li { display: flex; gap: 10px; font-size: 0.9rem; color: var(--gray-200); }
-.check { color: var(--red); font-weight: 700; }
+.check { color: var(--blue); font-weight: 700; }
 .pkg-cards { display: flex; flex-direction: column; gap: 16px; }
 .pkg-card { padding: 20px 24px; display: flex; align-items: center; gap: 16px; }
 .pkg-icon { font-size: 1.5rem; }
 .pkg-card h4 { font-size: 0.9rem; letter-spacing: 0.05em; margin-bottom: 2px; }
-.pkg-price { font-family: var(--font-display); font-size: 1rem; color: var(--red); font-weight: 700; white-space: nowrap; }
+.pkg-price { font-family: var(--font-display); font-size: 1rem; color: var(--blue); font-weight: 700; white-space: nowrap; }
 .pkg-card p { font-size: 0.8rem; color: var(--gray-400); margin-top: 2px; }
 
 .faq-list { margin-top: 32px; display: flex; flex-direction: column; }
@@ -317,7 +317,7 @@ const faqs = reactive([
 .faq-arrow {
   font-family: var(--font-mono);
   font-size: 1.2rem;
-  color: var(--red);
+  color: var(--blue);
   flex-shrink: 0;
 }
 .faq-a {

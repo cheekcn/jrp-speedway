@@ -16,7 +16,7 @@
         <h1 class="hero-title">
           <span>RACE.</span>
           <span class="outline">COMPETE.</span>
-          <span class="text-red">WIN.</span>
+          <span class="text-blue" style="color:var(--blue-mid)">WIN.</span>
         </h1>
         <p class="hero-sub">
           JRP Speedway — Tulsa's most intense outdoor karting experience.
@@ -208,7 +208,7 @@ const formatDay = (ts) => {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: var(--black-deep);
+  background: var(--black);
 }
 .hero-grid {
   position: absolute;
@@ -226,7 +226,7 @@ const formatDay = (ts) => {
   transform: translateX(-50%);
   width: 60%;
   height: 60%;
-  background: radial-gradient(ellipse, rgba(232,0,15,0.12) 0%, transparent 70%);
+  background: radial-gradient(ellipse, rgba(12,59,122,0.15) 0%, transparent 70%);
 }
 .hero-content {
   position: relative;
@@ -259,9 +259,9 @@ const formatDay = (ts) => {
 .rev-bar:nth-child(6) { height: 17px; }
 .rev-bar:nth-child(7) { height: 18px; }
 .rev-bar:nth-child(8) { height: 20px; }
-.rev-bar.active { background: var(--red); }
+.rev-bar.active { background: var(--blue); }
 .rev-bar:nth-child(7).active,
-.rev-bar:nth-child(8).active { background: var(--yellow); }
+.rev-bar:nth-child(8).active { background: var(--blue-mid); }
 
 .hero-title {
   font-size: clamp(4rem, 12vw, 10rem);
@@ -321,7 +321,7 @@ const formatDay = (ts) => {
   font-family: var(--font-mono);
   font-size: 0.65rem;
   letter-spacing: 0.2em;
-  color: var(--gray-400);
+  color: var(--blue-mid);
   writing-mode: vertical-rl;
   display: flex;
   align-items: center;
@@ -335,7 +335,7 @@ const formatDay = (ts) => {
 }
 
 /* ── Quick nav ── */
-.quick-nav { background: var(--gray-900); }
+.quick-nav { background: var(--off-white); border-top: 1px solid var(--gray-700); border-bottom: 1px solid var(--gray-700); }
 .qnav-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -346,15 +346,15 @@ const formatDay = (ts) => {
   overflow: hidden;
 }
 .qnav-card {
-  background: var(--gray-900);
+  background: var(--white);
   padding: 28px 24px;
   display: flex;
   align-items: center;
   gap: 16px;
   transition: background 0.15s;
 }
-.qnav-card:hover { background: var(--gray-800); }
-.qnav-card:hover .qnav-arrow { transform: translateX(4px); color: var(--red); }
+.qnav-card:hover { background: var(--off-white); }
+.qnav-card:hover .qnav-arrow { transform: translateX(4px); color: var(--blue); }
 .qnav-icon { font-size: 1.8rem; }
 .qnav-info h3 {
   font-size: 1rem;
@@ -386,13 +386,13 @@ const formatDay = (ts) => {
   color: var(--gray-200);
 }
 .check {
-  color: var(--red);
+  color: var(--blue);
   font-weight: 700;
   font-size: 0.9rem;
 }
 .track-diagram {
-  background: var(--gray-900);
-  border: 1px solid var(--gray-700);
+  background: var(--black);
+  border: 1px solid #1a3260;
   border-radius: 2px;
   padding: 32px;
   position: relative;
@@ -404,11 +404,11 @@ const formatDay = (ts) => {
   font-family: var(--font-mono);
   font-size: 0.65rem;
   letter-spacing: 0.2em;
-  color: var(--gray-400);
+  color: var(--blue-mid);
 }
 
 /* ── Events teaser ── */
-.events-teaser { background: var(--gray-900); }
+.events-teaser { background: var(--off-white); border-top: 1px solid var(--gray-700); border-bottom: 1px solid var(--gray-700); }
 .tease-header {
   display: flex;
   align-items: flex-end;
@@ -429,7 +429,7 @@ const formatDay = (ts) => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: var(--red);
+  background: var(--blue);
   padding: 10px 14px;
   border-radius: 2px;
   min-width: 56px;
@@ -464,9 +464,9 @@ const formatDay = (ts) => {
 
 /* ── CTA ── */
 .cta-banner {
-  background: linear-gradient(135deg, var(--red-dark) 0%, var(--black-deep) 60%);
-  border-top: 1px solid var(--red-dark);
-  border-bottom: 1px solid var(--red-dark);
+  background: var(--blue);
+  border-top: 1px solid var(--blue-dark);
+  border-bottom: 1px solid var(--blue-dark);
 }
 .cta-inner {
   padding: 72px 24px;

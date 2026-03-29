@@ -3,7 +3,7 @@
     <div class="page-hero">
       <div class="container">
         <p class="page-hero-eyebrow">// JRP RACING LEAGUE</p>
-        <h1>Compete for<br><span class="text-red">the Championship</span></h1>
+        <h1>Compete for<br><span class="text-blue">the Championship</span></h1>
         <p>Points-based competition racing at JRP Speedway. Multiple classes. Real trophies. Real rivals.</p>
       </div>
     </div>
@@ -37,7 +37,7 @@
     </section>
 
     <!-- Classes -->
-    <section class="section" style="background:var(--gray-900);border-top:1px solid var(--gray-700)">
+    <section class="section" style="background:var(--off-white);border-top:1px solid var(--gray-700)">
       <div class="container">
         <div class="accent-line"></div>
         <h2 class="section-title">Racing Classes</h2>
@@ -104,7 +104,7 @@
     <!-- CTA -->
     <section class="section">
       <div class="container text-center">
-        <h2 class="section-title" style="margin-bottom:12px">Ready to<br><span class="text-red">Race?</span></h2>
+        <h2 class="section-title" style="margin-bottom:12px">Ready to<br><span class="text-blue">Race?</span></h2>
         <p style="color:var(--gray-200);margin-bottom:28px">
           Register for the upcoming season or show up to our next arrive-and-drive to try it out.
         </p>
@@ -221,13 +221,13 @@ const pointsTable = [
   overflow: hidden;
 }
 .highlight-item {
-  background: var(--gray-800);
+  background: var(--white);
   padding: 28px 20px;
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
-.h-val { font-family: var(--font-display); font-size: 2rem; font-weight: 900; color: var(--red); }
+.h-val { font-family: var(--font-display); font-size: 2rem; font-weight: 900; color: var(--blue); }
 .h-label { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.12em; color: var(--gray-400); text-transform: uppercase; }
 
 .classes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 32px; }
@@ -255,7 +255,7 @@ const pointsTable = [
 }
 .step-num {
   width: 32px; height: 32px;
-  background: var(--red);
+  background: var(--blue);
   border-radius: 2px;
   display: flex;
   align-items: center;
@@ -291,7 +291,7 @@ const pointsTable = [
 .pt-row:last-child { border-bottom: none; }
 .pt-pos { display: flex; align-items: center; gap: 8px; font-family: var(--font-mono); }
 .trophy { font-size: 1rem; }
-.pt-pts { font-family: var(--font-display); font-size: 1.1rem; font-weight: 900; color: var(--red); }
+.pt-pts { font-family: var(--font-display); font-size: 1.1rem; font-weight: 900; color: var(--blue); }
 
 
 

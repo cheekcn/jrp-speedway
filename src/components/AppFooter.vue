@@ -36,10 +36,8 @@
 
         <div class="footer-col">
           <h4>Hours</h4>
-          <div class="hours-row"><span>Mon–Thu</span><span>3pm – 10pm</span></div>
-          <div class="hours-row"><span>Fri</span><span>12pm – 12am</span></div>
-          <div class="hours-row"><span>Sat</span><span>10am – 12am</span></div>
-          <div class="hours-row"><span>Sun</span><span>11am – 9pm</span></div>
+          <div class="hours-row"><span>Mon–Sat</span><span>9am – 6pm</span></div>
+          <div class="hours-row"><span>Sunday</span><span>Closed</span></div>
         </div>
       </div>
 
@@ -57,8 +55,8 @@ const year = new Date().getFullYear()
 
 <style scoped>
 .app-footer {
-  background: var(--black-deep);
-  border-top: 1px solid var(--gray-700);
+  background: var(--black);
+  border-top: 3px solid var(--blue);
   padding-bottom: 32px;
 }
 .footer-stripe {
@@ -66,7 +64,7 @@ const year = new Date().getFullYear()
   height: 3px;
   margin-bottom: 56px;
 }
-.footer-stripe span { flex: 1; background: var(--red); }
+.footer-stripe span { flex: 1; background: var(--blue); }
 .footer-stripe span.y { flex: 0 0 24px; background: var(--yellow); }
 
 .footer-grid {
@@ -108,7 +106,7 @@ const year = new Date().getFullYear()
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--red);
+  color: var(--blue-mid);
   margin-bottom: 16px;
 }
 .footer-col a,

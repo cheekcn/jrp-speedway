@@ -3,7 +3,7 @@
     <div class="page-hero">
       <div class="container">
         <p class="page-hero-eyebrow">// SHOP</p>
-        <h1>Karts & Tires<br><span class="text-red">For Sale</span></h1>
+        <h1>Karts & Tires<br><span class="text-blue">For Sale</span></h1>
         <p>Competition karts and fresh rubber available at JRP Speedway. All listings updated directly from our inventory.</p>
       </div>
     </div>
@@ -66,7 +66,7 @@
     </section>
 
     <!-- Info banner -->
-    <section class="section" style="background:var(--gray-900);border-top:1px solid var(--gray-700)">
+    <section class="section" style="background:var(--off-white);border-top:1px solid var(--gray-700)">
       <div class="container">
         <div class="info-grid">
           <div v-for="info in infos" :key="info.title" class="info-item">
@@ -139,7 +139,7 @@ const infos = [
   transition: var(--transition);
 }
 .filter-tab:hover { color: var(--white); }
-.filter-tab.active { color: var(--red); border-bottom-color: var(--red); }
+.filter-tab.active { color: var(--blue); border-bottom-color: var(--blue); }
 
 .products-grid {
   display: grid;
@@ -160,7 +160,7 @@ const infos = [
   align-items: center;
   justify-content: center;
   font-size: 3rem;
-  background: var(--gray-900);
+  background: var(--off-white);
 }
 .product-condition {
   position: absolute;
@@ -200,7 +200,7 @@ const infos = [
   font-family: var(--font-display);
   font-size: 1.5rem;
   font-weight: 900;
-  color: var(--red);
+  color: var(--blue);
 }
 .original-price {
   font-size: 0.85rem;

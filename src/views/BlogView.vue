@@ -3,7 +3,7 @@
     <div class="page-hero">
       <div class="container">
         <p class="page-hero-eyebrow">// BLOG</p>
-        <h1>Karting<br><span class="text-red">Knowledge</span></h1>
+        <h1>Karting<br><span class="text-blue">Knowledge</span></h1>
         <p>Setup tips, race recaps, driver spotlights, and news from the JRP paddock.</p>
       </div>
     </div>
@@ -107,7 +107,7 @@ const truncate = (text, len = 140) => {
   align-items: center;
   justify-content: center;
   font-size: 4rem;
-  background: var(--gray-900);
+  background: var(--off-white);
 }
 .featured-body {
   padding: 40px;
@@ -140,7 +140,7 @@ const truncate = (text, len = 140) => {
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--red);
+  color: var(--blue);
   margin-top: auto;
 }
 
@@ -163,7 +163,7 @@ const truncate = (text, len = 140) => {
   align-items: center;
   justify-content: center;
   font-size: 2.5rem;
-  background: var(--gray-900);
+  background: var(--off-white);
 }
 .post-body {
   padding: 20px;

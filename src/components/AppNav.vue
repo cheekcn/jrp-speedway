@@ -45,16 +45,16 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 1000;
-  background: rgba(5,5,5,0.85);
+  background: rgba(255,255,255,0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid transparent;
+  border-bottom: 2px solid transparent;
   transition: all 0.2s ease;
 }
 .app-nav.scrolled {
-  background: rgba(5,5,5,0.97);
-  border-bottom-color: var(--gray-700);
-  box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+  background: rgba(255,255,255,0.98);
+  border-bottom-color: var(--blue);
+  box-shadow: 0 4px 20px rgba(12,59,122,0.1);
 }
 .nav-inner {
   height: var(--nav-h);
@@ -72,13 +72,13 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
 }
 .logo-jrp {
   font-size: 1.8rem;
-  color: var(--red);
+  color: var(--blue);
   letter-spacing: -0.02em;
 }
 .logo-speedway {
   font-size: 1rem;
   letter-spacing: 0.15em;
-  color: var(--white);
+  color: var(--black);
 }
 .logo-flag { font-size: 1rem; }
 
@@ -94,16 +94,16 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
   letter-spacing: 0.08em;
   text-transform: uppercase;
   padding: 6px 14px;
-  color: var(--gray-200);
+  color: var(--gray-400);
   transition: color 0.15s;
   border-radius: 2px;
 }
 .nav-links a:hover,
 .nav-links a.router-link-active:not(.nav-cta) {
-  color: var(--white);
+  color: var(--black);
 }
 .nav-links a.router-link-active:not(.nav-cta) {
-  color: var(--red);
+  color: var(--blue);
 }
 .nav-cta {
   margin-left: 12px;
@@ -115,7 +115,7 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
   display: flex;
   height: 3px;
 }
-.nav-stripe span { flex: 1; background: var(--red); }
+.nav-stripe span { flex: 1; background: var(--blue); }
 .nav-stripe span.y { flex: 0 0 24px; background: var(--yellow); }
 
 .nav-hamburger {
@@ -130,7 +130,7 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
 .nav-hamburger span {
   display: block;
   width: 24px; height: 2px;
-  background: var(--white);
+  background: var(--black);
   transition: var(--transition);
 }
 
@@ -141,7 +141,7 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
     top: var(--nav-h);
     left: 0; right: 0;
     flex-direction: column;
-    background: var(--black-deep);
+    background: var(--white);
     border-bottom: 1px solid var(--gray-700);
     padding: 16px 24px 24px;
     gap: 4px;
