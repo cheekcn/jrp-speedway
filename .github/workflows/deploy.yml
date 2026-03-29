@@ -23,14 +23,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Check secrets are present
-        run: |
-          echo "API key starts with: ${VITE_FIREBASE_API_KEY:0:8}..."
-          echo "Project ID: $VITE_FIREBASE_PROJECT_ID"
-        env:
-          VITE_FIREBASE_API_KEY: ${{ secrets.VITE_FIREBASE_API_KEY }}
-          VITE_FIREBASE_PROJECT_ID: ${{ secrets.VITE_FIREBASE_PROJECT_ID }}
-
       - name: Build
         run: npm run build
         env:
@@ -51,20 +43,3 @@ jobs:
           output_location: ""
           skip_app_build: true
           skip_api_build: true
-
-  # Optional: deploy Firestore rules on merge to main
-  deploy_firebase:
-    runs-on: ubuntu-latest
-    name: Deploy Firebase Rules
-    needs: build_and_deploy
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Deploy Firestore Rules
-        uses: w9jds/firebase-action@master
-        with:
-          args: deploy --only firestore:rules,storage
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-          PROJECT_ID: ${{ secrets.VITE_FIREBASE_PROJECT_ID }}
