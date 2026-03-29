@@ -3,10 +3,10 @@
     <div class="editor-topbar">
       <RouterLink to="/admin/blog" class="back-btn">← All Posts</RouterLink>
       <div class="editor-actions">
-        <button class="btn btn-outline" @click="save(false)" :disabled="saving">
+        <button class="btn btn-outline" @click="save(false)" :disabled="saving || uploadProgress !== null">
           {{ saving && !publishing ? 'Saving…' : 'Save Draft' }}
         </button>
-        <button class="btn btn-primary" @click="save(true)" :disabled="saving">
+        <button class="btn btn-primary" @click="save(true)" :disabled="saving || uploadProgress !== null">
           {{ publishing ? 'Publishing…' : (form.published ? 'Update' : 'Publish') }}
         </button>
       </div>
@@ -58,12 +58,40 @@
             <label>Author</label>
             <input v-model="form.author" type="text" placeholder="Author name" />
           </div>
+
+          <!-- Cover image upload -->
           <div class="form-group">
-            <label>Cover Image URL</label>
-            <input v-model="form.coverImage" type="url" placeholder="https://…" />
-          </div>
-          <div v-if="form.coverImage" class="cover-preview">
-            <img :src="form.coverImage" alt="Cover preview" />
+            <label>Cover Image</label>
+            <div
+              class="cover-upload-area"
+              :class="{ 'has-image': imagePreview || form.coverImage }"
+              @click="triggerFileInput"
+              @dragover.prevent
+              @drop.prevent="handleDrop"
+            >
+              <input
+                ref="fileInput"
+                type="file"
+                accept="image/*"
+                style="display:none"
+                @change="handleFileChange"
+              />
+              <div v-if="imagePreview || form.coverImage" class="cover-preview">
+                <img :src="imagePreview || form.coverImage" alt="Cover preview" />
+                <button type="button" class="cover-remove-btn" @click.stop="removeImage" title="Remove image">✕</button>
+              </div>
+              <div v-else class="cover-upload-prompt">
+                <span style="font-size:1.4rem">📷</span>
+                <span class="upload-text">Click or drag & drop</span>
+                <span class="upload-sub">JPG, PNG, WEBP — max 5MB</span>
+              </div>
+            </div>
+            <div v-if="uploadProgress !== null" class="upload-progress-wrap">
+              <div class="upload-progress-bar" :style="{ width: uploadProgress + '%' }"></div>
+              <span class="upload-progress-label">
+                {{ uploadProgress < 100 ? `Uploading ${uploadProgress}%…` : 'Done!' }}
+              </span>
+            </div>
           </div>
         </div>
 
@@ -91,6 +119,13 @@
 import { ref, reactive, computed, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { getBlogPost, addBlogPost, updateBlogPost } from '@/firebase/services'
+import { storage } from '@/firebase/config'
+import {
+  ref as storageRef,
+  uploadBytesResumable,
+  getDownloadURL,
+  deleteObject
+} from 'firebase/storage'
 
 const route = useRoute()
 const router = useRouter()
@@ -103,6 +138,12 @@ const saving = ref(false)
 const publishing = ref(false)
 const saveMessage = ref('')
 const saveError = ref('')
+
+// Image state
+const fileInput = ref(null)
+const selectedFile = ref(null)
+const imagePreview = ref(null)
+const uploadProgress = ref(null)
 
 const form = reactive({
   title: '',
@@ -124,13 +165,81 @@ onMounted(async () => {
   }
 })
 
+// ── Image handling ────────────────────────────────────────────────────────
+const triggerFileInput = () => {
+  if (!imagePreview.value && !form.coverImage) fileInput.value?.click()
+}
+
+const handleFileChange = (e) => {
+  const file = e.target.files?.[0]
+  if (file) setFile(file)
+}
+
+const handleDrop = (e) => {
+  const file = e.dataTransfer.files?.[0]
+  if (file && file.type.startsWith('image/')) setFile(file)
+}
+
+const setFile = (file) => {
+  if (file.size > 5 * 1024 * 1024) {
+    saveError.value = 'Image must be under 5MB.'
+    return
+  }
+  selectedFile.value = file
+  imagePreview.value = URL.createObjectURL(file)
+  form.coverImage = ''
+}
+
+const removeImage = () => {
+  selectedFile.value = null
+  imagePreview.value = null
+  form.coverImage = ''
+  if (fileInput.value) fileInput.value.value = ''
+}
+
+const uploadImage = (file, id) => {
+  return new Promise((resolve, reject) => {
+    const ext = file.name.split('.').pop().toLowerCase()
+    const path = `blog/${id}_${Date.now()}.${ext}`
+    const sRef = storageRef(storage, path)
+    const task = uploadBytesResumable(sRef, file)
+
+    task.on(
+      'state_changed',
+      (snap) => {
+        uploadProgress.value = Math.round((snap.bytesTransferred / snap.totalBytes) * 100)
+      },
+      (err) => { uploadProgress.value = null; reject(err) },
+      async () => {
+        const url = await getDownloadURL(task.snapshot.ref)
+        uploadProgress.value = null
+        resolve(url)
+      }
+    )
+  })
+}
+
+// ── Save ──────────────────────────────────────────────────────────────────
 const save = async (publish) => {
   saveMessage.value = ''
   saveError.value = ''
   saving.value = true
   if (publish) publishing.value = true
+
   try {
-    const data = { ...form, published: publish ? true : form.published }
+    let coverImage = form.coverImage
+
+    // Upload new image if selected
+    if (selectedFile.value) {
+      const tempId = isEdit.value ? postId.value : `post_${Date.now()}`
+      coverImage = await uploadImage(selectedFile.value, tempId)
+      selectedFile.value = null
+      imagePreview.value = null
+      form.coverImage = coverImage
+    }
+
+    const data = { ...form, coverImage, published: publish ? true : form.published }
+
     if (isEdit.value) {
       await updateBlogPost(postId.value, data)
       Object.assign(form, data)
@@ -142,6 +251,7 @@ const save = async (publish) => {
     }
   } catch (e) {
     saveError.value = 'Save failed: ' + e.message
+    uploadProgress.value = null
   } finally {
     saving.value = false
     publishing.value = false
@@ -166,7 +276,7 @@ const save = async (publish) => {
   color: var(--gray-400);
   transition: color 0.15s;
 }
-.back-btn:hover { color: var(--red); }
+.back-btn:hover { color: var(--blue); }
 .editor-actions { display: flex; gap: 12px; }
 
 .editor-layout {
@@ -189,20 +299,20 @@ const save = async (publish) => {
   border-radius: 0;
   padding: 12px 0;
   margin-bottom: 0;
-  color: var(--white);
+  color: var(--black);
 }
-.title-input:focus { border-bottom-color: var(--red); box-shadow: none; }
+.title-input:focus { border-bottom-color: var(--blue); box-shadow: none; }
 .excerpt-input {
   background: transparent;
   border: none;
-  border-bottom: 1px solid var(--gray-800);
+  border-bottom: 1px solid var(--gray-700);
   border-radius: 0;
   padding: 12px 0;
-  color: var(--gray-200);
+  color: var(--gray-400);
   font-style: italic;
   font-size: 1rem;
 }
-.excerpt-input:focus { border-bottom-color: var(--red); box-shadow: none; }
+.excerpt-input:focus { border-bottom-color: var(--blue); box-shadow: none; }
 .body-input {
   background: transparent;
   border: none;
@@ -212,7 +322,7 @@ const save = async (publish) => {
   line-height: 1.8;
   min-height: 480px;
   resize: none;
-  color: var(--gray-100);
+  color: var(--black);
 }
 .body-input:focus { box-shadow: none; }
 
@@ -221,9 +331,9 @@ const save = async (publish) => {
   top: calc(64px + 32px);
 }
 .sidebar-section {
-  background: var(--gray-800);
+  background: var(--off-white);
   border: 1px solid var(--gray-700);
-  border-radius: 2px;
+  border-radius: var(--radius);
   padding: 20px;
   margin-bottom: 16px;
 }
@@ -232,19 +342,82 @@ const save = async (publish) => {
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--red);
+  color: var(--blue);
   margin-bottom: 16px;
 }
 .sidebar-section .form-group { margin-bottom: 12px; }
 .sidebar-section .form-group:last-child { margin-bottom: 0; }
 
-.cover-preview {
-  margin-top: 8px;
-  border-radius: 2px;
+/* Cover image upload */
+.cover-upload-area {
+  border: 2px dashed var(--gray-600);
+  border-radius: var(--radius);
+  cursor: pointer;
   overflow: hidden;
-  max-height: 140px;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--white);
+  transition: border-color 0.15s, background 0.15s;
 }
-.cover-preview img { width: 100%; height: 140px; object-fit: cover; }
+.cover-upload-area:not(.has-image):hover {
+  border-color: var(--blue);
+  background: var(--blue-pale);
+}
+.cover-upload-area.has-image { cursor: default; border-style: solid; border-color: var(--gray-600); }
+
+.cover-upload-prompt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 20px 16px;
+  text-align: center;
+  pointer-events: none;
+}
+.upload-text { font-size: 0.8rem; font-weight: 600; color: var(--black); }
+.upload-sub { font-size: 0.7rem; color: var(--gray-400); }
+
+.cover-preview {
+  position: relative;
+  width: 100%;
+  height: 140px;
+}
+.cover-preview img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cover-remove-btn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+}
+.cover-remove-btn:hover { background: rgba(232,0,15,0.85); }
+
+.upload-progress-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+}
+.upload-progress-bar {
+  height: 3px;
+  background: var(--blue);
+  border-radius: 2px;
+  transition: width 0.2s ease;
+  flex: 1;
+}
+.upload-progress-label { font-size: 0.7rem; color: var(--gray-400); white-space: nowrap; }
 
 .toggle-label {
   display: flex;
@@ -260,7 +433,7 @@ const save = async (publish) => {
 .toggle-check { display: none; }
 .toggle-slider {
   width: 40px; height: 22px;
-  background: var(--gray-700);
+  background: var(--gray-600);
   border-radius: 11px;
   position: relative;
   transition: background 0.2s;
@@ -275,7 +448,7 @@ const save = async (publish) => {
   top: 3px; left: 3px;
   transition: transform 0.2s;
 }
-.toggle-check:checked + .toggle-slider { background: var(--red); }
+.toggle-check:checked + .toggle-slider { background: var(--blue); }
 .toggle-check:checked + .toggle-slider::after { transform: translateX(18px); }
 
 @media (max-width: 900px) {
