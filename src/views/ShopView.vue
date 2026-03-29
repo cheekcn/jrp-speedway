@@ -110,7 +110,7 @@ const conditionClass = (c) => {
 const infos = [
   { icon: '🔧', title: 'Prep & Setup', body: 'We can prep purchased karts to race-ready spec in our onsite workshop.' },
   { icon: '🚚', title: 'Local Pickup', body: 'All items are pickup only at JRP Speedway, Tulsa OK. Contact us to arrange.' },
-  { icon: '💬', title: 'Questions?', body: 'Reach out to info@jrpspeedway.com or call (918) 555-0100 for pricing and availability.' },
+  { icon: '💬', title: 'Questions?', body: 'Reach out to info@jrpspeedway.com or call (918) 446-7000 for pricing and availability.' },
   { icon: '🔄', title: 'Trade-Ins', body: 'Ask about trade-in value on your current kart toward a new purchase.' },
 ]
 </script>
