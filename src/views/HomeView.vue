@@ -14,7 +14,7 @@
           </span>
         </div>
         <h1 class="hero-title">
-          <span>RACE.</span>
+          <span style="color:#ffffff">RACE.</span>
           <span class="outline">COMPETE.</span>
           <span class="text-blue" style="color:var(--blue-mid)">WIN.</span>
         </h1>
@@ -24,7 +24,7 @@
         </p>
         <div class="hero-actions">
           <RouterLink to="/rentals" class="btn btn-primary">Book a Session</RouterLink>
-          <RouterLink to="/events" class="btn btn-outline">View Events</RouterLink>
+          <RouterLink to="/events" class="btn btn-outline hero-outline-btn">View Events</RouterLink>
         </div>
         <div class="hero-stats">
           <div class="stat"><span class="stat-val">1/4</span><span class="stat-label">Mile Track</span></div>
@@ -139,7 +139,7 @@
         <p>Book a rental session or register for a league race.</p>
         <div style="display:flex;gap:16px;flex-wrap:wrap">
           <RouterLink to="/rentals" class="btn btn-primary">Book Now</RouterLink>
-          <RouterLink to="/league" class="btn btn-outline">Join the League</RouterLink>
+          <RouterLink to="/league" class="btn btn-outline cta-outline-btn">Join the League</RouterLink>
         </div>
       </div>
     </section>
@@ -472,6 +472,28 @@ const formatDay = (ts) => {
   padding: 72px 24px;
 }
 .cta-inner h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 12px; }
+
+/* Hero outline button — on dark background needs white styling */
+.hero-outline-btn {
+  color: var(--white) !important;
+  border-color: rgba(255,255,255,0.6) !important;
+}
+.hero-outline-btn:hover {
+  color: var(--white) !important;
+  border-color: var(--white) !important;
+  background: rgba(255,255,255,0.1) !important;
+}
+
+/* CTA outline button — on navy background, white styling that stays visible on hover */
+.cta-outline-btn {
+  color: var(--white) !important;
+  border-color: rgba(255,255,255,0.6) !important;
+}
+.cta-outline-btn:hover {
+  color: var(--white) !important;
+  border-color: var(--white) !important;
+  background: rgba(255,255,255,0.15) !important;
+}
 .cta-inner p { color: rgba(255,255,255,0.7); margin-bottom: 28px; }
 
 @media (max-width: 900px) {
