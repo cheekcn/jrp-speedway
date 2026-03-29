@@ -149,20 +149,20 @@ const twShare = computed(() => `https://twitter.com/intent/tweet?url=${pageUrl.v
 .post-body {
   font-size: 1rem;
   line-height: 1.85;
-  color: var(--gray-100);
+  color: var(--black);
 }
 .post-body :deep(p) { margin-bottom: 20px; }
 .post-body :deep(h2) {
   font-size: 1.6rem;
   margin: 36px 0 16px;
-  color: var(--white);
+  color: var(--black);
 }
 .post-body :deep(h3) {
   font-size: 1.2rem;
   margin: 28px 0 12px;
-  color: var(--white);
+  color: var(--black);
 }
-.post-body :deep(strong) { color: var(--white); }
+.post-body :deep(strong) { color: var(--black); }
 .post-body :deep(a) { color: var(--blue); text-decoration: underline; }
 .post-body :deep(ul), .post-body :deep(ol) {
   padding-left: 24px;
@@ -209,7 +209,7 @@ const twShare = computed(() => `https://twitter.com/intent/tweet?url=${pageUrl.v
 .sidebar-back {
   display: flex;
   align-items: center;
-  color: var(--gray-200);
+  color: var(--gray-400);
   font-family: var(--font-display);
   font-size: 0.8rem;
   font-weight: 700;

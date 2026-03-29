@@ -261,7 +261,7 @@ const save = async (publish) => {
 </script>
 
 <style scoped>
-.editor-page { display: flex; flex-direction: column; height: 100%; }
+.editor-page { display: flex; flex-direction: column; height: 100%; background: var(--white); padding: 0; }
 
 .editor-topbar {
   display: flex;
@@ -295,7 +295,7 @@ const save = async (publish) => {
   text-transform: uppercase;
   background: transparent;
   border: none;
-  border-bottom: 2px solid var(--gray-700);
+  border-bottom: 2px solid var(--gray-600);
   border-radius: 0;
   padding: 12px 0;
   margin-bottom: 0;
@@ -305,10 +305,10 @@ const save = async (publish) => {
 .excerpt-input {
   background: transparent;
   border: none;
-  border-bottom: 1px solid var(--gray-700);
+  border-bottom: 1px solid var(--gray-600);
   border-radius: 0;
   padding: 12px 0;
-  color: var(--gray-400);
+  color: var(--black);
   font-style: italic;
   font-size: 1rem;
 }
@@ -323,6 +323,7 @@ const save = async (publish) => {
   min-height: 480px;
   resize: none;
   color: var(--black);
+  background: var(--white);
 }
 .body-input:focus { box-shadow: none; }
 
