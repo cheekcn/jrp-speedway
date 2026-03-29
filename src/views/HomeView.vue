@@ -177,10 +177,8 @@ const quickNav = [
 ]
 
 const features = [
-  'Professional-grade electric & gas karts',
+  'Professional-grade gas karts',
   'Championship-caliber track layout',
-  'Timing system with live leaderboard',
-  'TSRS-affiliated racing league',
   'Arrive-and-drive events year-round',
   'Onsite kart prep and tuning support',
 ]
