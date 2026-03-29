@@ -136,12 +136,22 @@ const formatDay = (ts) => {
 
 const openForm = (evt = null) => {
   formError.value = ''
-  editingEvent.value = evt
+  editingEvent.value = evt ? { id: evt.id } : null
   if (evt) {
     const d = evt.eventDate?.toDate ? evt.eventDate.toDate() : new Date(evt.eventDate)
+    // Use UTC date parts to avoid timezone offset shifting the day
+    const yyyy = d.getUTCFullYear()
+    const mm = String(d.getUTCMonth() + 1).padStart(2, '0')
+    const dd = String(d.getUTCDate()).padStart(2, '0')
     Object.assign(form, {
-      ...evt,
-      eventDateStr: d.toISOString().split('T')[0]
+      title: evt.title || '',
+      type: evt.type || '',
+      eventDateStr: `${yyyy}-${mm}-${dd}`,
+      time: evt.time || '',
+      price: evt.price || '',
+      location: evt.location || 'JRP Speedway',
+      registrationUrl: evt.registrationUrl || '',
+      description: evt.description || '',
     })
   } else {
     Object.assign(form, blankForm())
@@ -155,7 +165,9 @@ const saveEvent = async () => {
   formLoading.value = true
   formError.value = ''
   try {
-    const eventDate = Timestamp.fromDate(new Date(form.eventDateStr))
+    // Parse date as local midnight, not UTC midnight, to avoid off-by-one day
+    const [year, month, day] = form.eventDateStr.split('-').map(Number)
+    const eventDate = Timestamp.fromDate(new Date(year, month - 1, day, 12, 0, 0))
     const data = { ...form, eventDate, eventDateStr: undefined }
     delete data.eventDateStr
     if (editingEvent.value) {
