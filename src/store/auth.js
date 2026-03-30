@@ -1,12 +1,14 @@
 // src/store/auth.js
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
+import { initializeApp, deleteApp } from 'firebase/app'
 import {
   signInWithEmailAndPassword, signOut,
-  onAuthStateChanged, createUserWithEmailAndPassword
+  onAuthStateChanged, createUserWithEmailAndPassword,
+  getAuth
 } from 'firebase/auth'
 import { doc, getDoc, setDoc } from 'firebase/firestore'
-import { auth, db } from '@/firebase/config'
+import { auth, db, firebaseConfig } from '@/firebase/config'
 
 export const useAuthStore = defineStore('auth', () => {
   const user = ref(null)
@@ -18,8 +20,12 @@ export const useAuthStore = defineStore('auth', () => {
   const isSuperAdmin = computed(() => adminProfile.value?.role === 'superadmin')
 
   const fetchAdminProfile = async (uid) => {
-    const snap = await getDoc(doc(db, 'admins', uid))
-    adminProfile.value = snap.exists() ? { id: snap.id, ...snap.data() } : null
+    try {
+      const snap = await getDoc(doc(db, 'admins', uid))
+      adminProfile.value = snap.exists() ? { id: snap.id, ...snap.data() } : null
+    } catch {
+      adminProfile.value = null
+    }
   }
 
   const init = () => {
@@ -50,15 +56,23 @@ export const useAuthStore = defineStore('auth', () => {
     adminProfile.value = null
   }
 
-  // Only superadmins can create new admin accounts
+  // Creates a new admin account using a secondary Firebase app instance
+  // so the superadmin's session is never interrupted.
   const createAdmin = async (email, password, profileData) => {
-    const cred = await createUserWithEmailAndPassword(auth, email, password)
-    await setDoc(doc(db, 'admins', cred.user.uid), {
-      email,
-      ...profileData,
-      createdAt: new Date()
-    })
-    return cred.user
+    const secondaryApp = initializeApp(firebaseConfig, `secondary_${Date.now()}`)
+    const secondaryAuth = getAuth(secondaryApp)
+    try {
+      const cred = await createUserWithEmailAndPassword(secondaryAuth, email, password)
+      await setDoc(doc(db, 'admins', cred.user.uid), {
+        email,
+        ...profileData,
+        createdAt: new Date()
+      })
+      await signOut(secondaryAuth)
+      return cred.user
+    } finally {
+      await deleteApp(secondaryApp)
+    }
   }
 
   return { user, adminProfile, loading, isLoggedIn, isAdmin, isSuperAdmin, init, login, logout, createAdmin }
