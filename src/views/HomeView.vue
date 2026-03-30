@@ -80,7 +80,7 @@
               <div class="track-label">JRP LAYOUT</div>
               <svg viewBox="0 0 680 420" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
-                  <marker id="arr-h" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+                  <marker id="arr-h" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
                     <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                   </marker>
                 </defs>
@@ -90,9 +90,9 @@
                   fill="none" stroke="#2d2d2d" stroke-width="54" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M 120 80 C 80 80, 46 96, 46 130 C 46 164, 46 175, 46 200 C 46 225, 46 236, 46 270 C 46 304, 80 320, 120 320 L 560 320 C 596 320, 616 305, 616 280 C 616 255, 596 244, 560 244 L 260 244 C 240 244, 224 232, 224 214 C 224 206, 224 200, 224 200 C 224 200, 224 194, 224 186 C 224 168, 240 156, 260 156 L 560 156 C 596 156, 616 145, 616 120 C 616 95, 596 80, 560 80 Z"
                   fill="none" stroke="#E8000F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 6" opacity="0.85"/>
-                <line x1="440" y1="80" x2="300" y2="80" stroke="#E8000F" stroke-width="1.6" marker-end="url(#arr-h)" opacity="0.9"/>
-                <line x1="300" y1="200" x2="440" y2="200" stroke="#E8000F" stroke-width="1.6" marker-end="url(#arr-h)" opacity="0.9"/>
-                <line x1="300" y1="320" x2="440" y2="320" stroke="#E8000F" stroke-width="1.6" marker-end="url(#arr-h)" opacity="0.9"/>
+                <line x1="440" y1="80" x2="300" y2="80" stroke="#E8000F" stroke-width="1.8" marker-end="url(#arr-h)" opacity="0.9"/>
+                <line x1="300" y1="200" x2="440" y2="200" stroke="#E8000F" stroke-width="1.8" marker-end="url(#arr-h)" opacity="0.9"/>
+                <line x1="300" y1="320" x2="440" y2="320" stroke="#E8000F" stroke-width="1.8" marker-end="url(#arr-h)" opacity="0.9"/>
                 <line x1="340" y1="53" x2="340" y2="107" stroke="#FFD000" stroke-width="3.5"/>
                 <text x="340" y="44" text-anchor="middle" font-family="monospace" font-size="9" fill="#FFD000" font-weight="bold">S/F</text>
               </svg>
