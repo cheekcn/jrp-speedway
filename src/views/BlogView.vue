@@ -107,7 +107,7 @@ const truncate = (text, len = 140) => {
   align-items: center;
   justify-content: center;
   font-size: 4rem;
-  background: var(--off-white);
+  background: var(--surface-alt);
 }
 .featured-body {
   padding: 40px;
@@ -140,7 +140,7 @@ const truncate = (text, len = 140) => {
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--blue);
+  color: var(--primary);
   margin-top: auto;
 }
 
@@ -163,7 +163,7 @@ const truncate = (text, len = 140) => {
   align-items: center;
   justify-content: center;
   font-size: 2.5rem;
-  background: var(--off-white);
+  background: var(--surface-alt);
 }
 .post-body {
   padding: 20px;

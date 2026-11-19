@@ -66,7 +66,7 @@
     </section>
 
     <!-- Info banner -->
-    <section class="section" style="background:var(--off-white);border-top:1px solid var(--gray-700)">
+    <section class="section" style="background:var(--surface-alt);border-top:1px solid var(--gray-700)">
       <div class="container">
         <div class="info-grid">
           <div v-for="info in infos" :key="info.title" class="info-item">
@@ -139,7 +139,7 @@ const infos = [
   transition: var(--transition);
 }
 .filter-tab:hover { color: var(--white); }
-.filter-tab.active { color: var(--blue); border-bottom-color: var(--blue); }
+.filter-tab.active { color: var(--primary); border-bottom-color: var(--primary); }
 
 .products-grid {
   display: grid;
@@ -160,7 +160,7 @@ const infos = [
   align-items: center;
   justify-content: center;
   font-size: 3rem;
-  background: var(--off-white);
+  background: var(--surface-alt);
 }
 .product-condition {
   position: absolute;
@@ -200,7 +200,7 @@ const infos = [
   font-family: var(--font-display);
   font-size: 1.5rem;
   font-weight: 900;
-  color: var(--blue);
+  color: var(--primary);
 }
 .original-price {
   font-size: 0.85rem;

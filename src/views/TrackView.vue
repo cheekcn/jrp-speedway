@@ -28,48 +28,29 @@
               <span class="badge">Track Layout</span>
               <span class="text-mono text-muted" style="font-size:0.7rem">JRP — TULSA, OK</span>
             </div>
-            <svg viewBox="0 0 680 420" fill="none" xmlns="http://www.w3.org/2000/svg" class="track-svg">
-              <defs>
-                <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
-                  <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </marker>
-              </defs>
-              <!-- Shadow -->
-              <path d="M 120 80 C 80 80, 46 96, 46 130 C 46 164, 46 175, 46 200 C 46 225, 46 236, 46 270 C 46 304, 80 320, 120 320 L 560 320 C 596 320, 616 305, 616 280 C 616 255, 596 244, 560 244 L 260 244 C 240 244, 224 232, 224 214 C 224 206, 224 200, 224 200 C 224 200, 224 194, 224 186 C 224 168, 240 156, 260 156 L 560 156 C 596 156, 616 145, 616 120 C 616 95, 596 80, 560 80 Z"
-                fill="none" stroke="#111" stroke-width="62" stroke-linecap="round" stroke-linejoin="round"/>
-              <!-- Track surface -->
-              <path d="M 120 80 C 80 80, 46 96, 46 130 C 46 164, 46 175, 46 200 C 46 225, 46 236, 46 270 C 46 304, 80 320, 120 320 L 560 320 C 596 320, 616 305, 616 280 C 616 255, 596 244, 560 244 L 260 244 C 240 244, 224 232, 224 214 C 224 206, 224 200, 224 200 C 224 200, 224 194, 224 186 C 224 168, 240 156, 260 156 L 560 156 C 596 156, 616 145, 616 120 C 616 95, 596 80, 560 80 Z"
-                fill="none" stroke="#2d2d2d" stroke-width="54" stroke-linecap="round" stroke-linejoin="round"/>
-              <!-- Racing line -->
-              <path d="M 120 80 C 80 80, 46 96, 46 130 C 46 164, 46 175, 46 200 C 46 225, 46 236, 46 270 C 46 304, 80 320, 120 320 L 560 320 C 596 320, 616 305, 616 280 C 616 255, 596 244, 560 244 L 260 244 C 240 244, 224 232, 224 214 C 224 206, 224 200, 224 200 C 224 200, 224 194, 224 186 C 224 168, 240 156, 260 156 L 560 156 C 596 156, 616 145, 616 120 C 616 95, 596 80, 560 80 Z"
-                fill="none" stroke="#E8000F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 6" opacity="0.85"/>
-              <!-- Direction arrows -->
-              <line x1="440" y1="80" x2="300" y2="80" stroke="#E8000F" stroke-width="1.8" marker-end="url(#arr)" opacity="0.9"/>
-              <line x1="300" y1="200" x2="440" y2="200" stroke="#E8000F" stroke-width="1.8" marker-end="url(#arr)" opacity="0.9"/>
-              <line x1="300" y1="320" x2="440" y2="320" stroke="#E8000F" stroke-width="1.8" marker-end="url(#arr)" opacity="0.9"/>
-              <!-- S/F line — middle of top straight -->
-              <line x1="340" y1="53" x2="340" y2="107" stroke="#FFD000" stroke-width="3.5"/>
-              <text x="340" y="44" text-anchor="middle" font-family="monospace" font-size="9" fill="#FFD000" font-weight="bold">S/F</text>
-            </svg>
+            <TrackMap />
           </div>
         </div>
       </div>
     </section>
 
     <!-- Hours -->
-    <section class="section" style="background:var(--off-white);border-top:1px solid var(--gray-700)">
+    <section class="section" style="background:var(--surface-alt);border-top:1px solid var(--gray-700)">
       <div class="container">
         <div class="accent-line"></div>
         <h2 class="section-title">Hours of Operation</h2>
+        <span v-if="hours.season" class="badge badge-yellow season-badge">{{ hours.season }}</span>
         <div class="hours-grid">
-          <div v-for="h in hours" :key="h.day" class="hours-card card">
+          <div v-for="h in hours.days" :key="h.day" class="hours-card card"
+            :class="{ today: h.day === today, closed: h.closed }">
+            <span v-if="h.day === today" class="today-tag">Today</span>
             <span class="hours-day">{{ h.day }}</span>
-            <span class="hours-time">{{ h.time }}</span>
+            <span class="hours-time">{{ formatDayHours(h) }}</span>
             <span v-if="h.note" class="hours-note">{{ h.note }}</span>
           </div>
         </div>
-        <p class="text-muted" style="margin-top:20px;font-size:0.85rem">
-          * Hours subject to change for special events. Check social media or call ahead.
+        <p v-if="hours.footnote" class="text-muted" style="margin-top:20px;font-size:0.85rem">
+          * {{ hours.footnote }}
         </p>
       </div>
     </section>
@@ -126,7 +107,7 @@
     </section>
 
     <!-- Rules & Info -->
-    <section class="section" style="background:var(--off-white);border-top:1px solid var(--gray-700)">
+    <section class="section" style="background:var(--surface-alt);border-top:1px solid var(--gray-700)">
       <div class="container">
         <div class="accent-line"></div>
         <h2 class="section-title">Need to Know</h2>
@@ -143,6 +124,9 @@
 </template>
 
 <script setup>
+import TrackMap from '@/components/TrackMap.vue'
+import { useHours, formatDayHours } from '@/composables/useHours'
+
 const specs = [
   { value: '1/4 mi', label: 'Track Length' },
   { value: '45+ mph', label: 'Top Speed' },
@@ -152,15 +136,8 @@ const specs = [
   { value: '12+', label: 'Karts on Track' },
 ]
 
-const hours = [
-  { day: 'Monday', time: '9:00 AM – 6:00 PM' },
-  { day: 'Tuesday', time: '9:00 AM – 6:00 PM' },
-  { day: 'Wednesday', time: '9:00 AM – 6:00 PM' },
-  { day: 'Thursday', time: '9:00 AM – 6:00 PM' },
-  { day: 'Friday', time: '9:00 AM – 6:00 PM' },
-  { day: 'Saturday', time: '9:00 AM – 6:00 PM' },
-  { day: 'Sunday', time: 'Closed' },
-]
+const hours = useHours()
+const today = new Date().toLocaleDateString('en-US', { weekday: 'long' })
 
 const rules = [
   { icon: '👟', title: 'Footwear', body: 'Closed-toe shoes required at all times. No sandals, flip-flops, or bare feet on the track.' },
@@ -190,7 +167,7 @@ const rules = [
   margin-top: 32px;
 }
 .spec-item {
-  background: var(--white);
+  background: var(--surface);
   padding: 20px 16px;
   display: flex;
   flex-direction: column;
@@ -200,7 +177,7 @@ const rules = [
   font-family: var(--font-display);
   font-size: 1.5rem;
   font-weight: 900;
-  color: var(--blue);
+  color: var(--primary);
 }
 .spec-label {
   font-size: 0.75rem;
@@ -224,11 +201,28 @@ const rules = [
   gap: 12px;
   margin-top: 32px;
 }
+.season-badge { margin-top: 4px; }
 .hours-card {
   padding: 20px 16px;
   display: flex;
   flex-direction: column;
   gap: 4px;
+}
+.hours-card.closed .hours-time { color: var(--gray-400); }
+.hours-card.closed { opacity: 0.7; }
+.hours-card.today {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 1px var(--primary), 0 10px 30px rgba(225, 6, 0, 0.18);
+  opacity: 1;
+}
+.today-tag {
+  position: absolute;
+  top: 10px; right: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--primary-bright);
 }
 .hours-day {
   font-family: var(--font-display);
@@ -267,14 +261,14 @@ const rules = [
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--blue);
+  color: var(--primary);
   margin-bottom: 4px;
 }
 .contact-item p, .contact-item a {
   font-size: 0.9rem;
   color: var(--gray-200);
 }
-.contact-item a:hover { color: var(--blue); }
+.contact-item a:hover { color: var(--primary); }
 
 .map-embed {
   border-radius: 2px;

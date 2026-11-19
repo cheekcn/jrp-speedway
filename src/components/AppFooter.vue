@@ -1,13 +1,11 @@
 <template>
   <footer class="app-footer">
-    <div class="footer-stripe">
-      <span></span><span class="y"></span><span></span><span></span><span></span>
-    </div>
+    <div class="checker-strip footer-checker"></div>
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="brand-logo">
-            <span class="text-red">JRP</span> SPEEDWAY
+            <span class="brand-jrp">JRP</span> SPEEDWAY
           </div>
           <p>Tulsa's premier outdoor karting experience. Race rental karts or compete in our league.</p>
           <div class="social-row">
@@ -36,8 +34,8 @@
 
         <div class="footer-col">
           <h4>Hours</h4>
-          <div class="hours-row"><span>Mon–Sat</span><span>9am – 6pm</span></div>
-          <div class="hours-row"><span>Sunday</span><span>Closed</span></div>
+          <p v-if="hours.season" class="season">{{ hours.season }}</p>
+          <div v-for="g in hourGroups" :key="g.label" class="hours-row"><span>{{ g.label }}</span><span>{{ g.time }}</span></div>
         </div>
       </div>
 
@@ -50,22 +48,31 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
+import { useHours, groupHours } from '@/composables/useHours'
+
 const year = new Date().getFullYear()
+const hours = useHours()
+const hourGroups = computed(() => groupHours(hours.days))
 </script>
 
 <style scoped>
 .app-footer {
   background: var(--black);
-  border-top: 3px solid var(--blue);
   padding-bottom: 32px;
+  position: relative;
 }
-.footer-stripe {
-  display: flex;
+.app-footer::before {
+  content: '';
+  position: absolute;
+  top: 8px; left: 0; right: 0;
   height: 3px;
-  margin-bottom: 56px;
+  background: linear-gradient(90deg, var(--primary), var(--primary-light) 60%, var(--yellow));
 }
-.footer-stripe span { flex: 1; background: var(--blue); }
-.footer-stripe span.y { flex: 0 0 24px; background: var(--yellow); }
+.footer-checker {
+  margin-bottom: 64px;
+  opacity: 0.85;
+}
 
 .footer-grid {
   display: grid;
@@ -78,8 +85,17 @@ const year = new Date().getFullYear()
   font-size: 1.5rem;
   font-weight: 900;
   text-transform: uppercase;
+  font-style: italic;
   letter-spacing: 0.05em;
   margin-bottom: 12px;
+  color: var(--text);
+}
+.brand-jrp {
+  display: inline-block;
+  color: var(--white);
+  background: var(--primary);
+  padding: 2px 12px 0 8px;
+  clip-path: polygon(7px 0, 100% 0, calc(100% - 7px) 100%, 0 100%);
 }
 .footer-brand p {
   font-size: 0.875rem;
@@ -92,13 +108,13 @@ const year = new Date().getFullYear()
 .social-row a {
   font-family: var(--font-mono);
   font-size: 0.7rem;
-  background: var(--gray-800);
-  border: 1px solid var(--gray-600);
+  background: var(--gray-900);
+  border: 1px solid var(--gray-700);
   padding: 6px 10px;
   border-radius: 2px;
   transition: var(--transition);
 }
-.social-row a:hover { border-color: var(--red); color: var(--red); }
+.social-row a:hover { border-color: var(--primary); color: var(--white); background: var(--primary); }
 
 .footer-col h4 {
   font-family: var(--font-display);
@@ -106,7 +122,7 @@ const year = new Date().getFullYear()
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--blue-mid);
+  color: var(--primary-bright);
   margin-bottom: 16px;
 }
 .footer-col a,
@@ -129,6 +145,14 @@ const year = new Date().getFullYear()
   border-bottom: 1px solid var(--gray-800);
 }
 .hours-row span:last-child { color: var(--gray-200); }
+.footer-col .season {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin-bottom: 6px;
+}
 
 .footer-bottom {
   display: flex;

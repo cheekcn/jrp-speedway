@@ -56,7 +56,7 @@
     </section>
 
     <!-- Call to action -->
-    <section class="section" style="background:var(--off-white);border-top:1px solid var(--gray-700)">
+    <section class="section" style="background:var(--surface-alt);border-top:1px solid var(--gray-700)">
       <div class="container text-center">
         <div class="accent-line" style="margin:0 auto 16px"></div>
         <h2 class="section-title">Want to Host an Event?</h2>
@@ -137,7 +137,7 @@ const badgeClass = (type) => {
   transition: var(--transition);
 }
 .filter-tab:hover { color: var(--white); }
-.filter-tab.active { color: var(--blue); border-bottom-color: var(--blue); }
+.filter-tab.active { color: var(--primary); border-bottom-color: var(--primary); }
 
 .events-list { display: flex; flex-direction: column; gap: 16px; }
 .event-row {
@@ -150,7 +150,7 @@ const badgeClass = (type) => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: var(--off-white);
+  background: var(--surface-alt);
   border: 1px solid var(--gray-700);
   padding: 12px 16px;
   border-radius: 2px;
@@ -161,7 +161,7 @@ const badgeClass = (type) => {
   font-family: var(--font-mono);
   font-size: 0.6rem;
   letter-spacing: 0.12em;
-  color: var(--blue);
+  color: var(--primary);
 }
 .ev-day {
   font-family: var(--font-display);
@@ -195,7 +195,7 @@ const badgeClass = (type) => {
   font-family: var(--font-display);
   font-size: 1.2rem;
   font-weight: 900;
-  color: var(--blue);
+  color: var(--primary);
 }
 .empty-state {
   text-align: center;

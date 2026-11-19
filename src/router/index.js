@@ -87,6 +87,11 @@ const routes = [
         component: () => import('@/views/admin/ShopManager.vue')
       },
       {
+        path: 'hours',
+        name: 'admin-hours',
+        component: () => import('@/views/admin/HoursManager.vue')
+      },
+      {
         path: 'users',
         name: 'admin-users',
         component: () => import('@/views/admin/UsersManager.vue'),

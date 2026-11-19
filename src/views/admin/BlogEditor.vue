@@ -261,7 +261,7 @@ const save = async (publish) => {
 </script>
 
 <style scoped>
-.editor-page { display: flex; flex-direction: column; height: 100%; background: var(--white); padding: 0; }
+.editor-page { display: flex; flex-direction: column; height: 100%; background: var(--surface); padding: 0; }
 
 .editor-topbar {
   display: flex;
@@ -276,7 +276,7 @@ const save = async (publish) => {
   color: var(--gray-400);
   transition: color 0.15s;
 }
-.back-btn:hover { color: var(--blue); }
+.back-btn:hover { color: var(--primary); }
 .editor-actions { display: flex; gap: 12px; }
 
 .editor-layout {
@@ -299,20 +299,20 @@ const save = async (publish) => {
   border-radius: 0;
   padding: 12px 0;
   margin-bottom: 0;
-  color: var(--black);
+  color: var(--text);
 }
-.title-input:focus { border-bottom-color: var(--blue); box-shadow: none; }
+.title-input:focus { border-bottom-color: var(--primary); box-shadow: none; }
 .excerpt-input {
   background: transparent;
   border: none;
   border-bottom: 1px solid var(--gray-600);
   border-radius: 0;
   padding: 12px 0;
-  color: var(--black);
+  color: var(--text);
   font-style: italic;
   font-size: 1rem;
 }
-.excerpt-input:focus { border-bottom-color: var(--blue); box-shadow: none; }
+.excerpt-input:focus { border-bottom-color: var(--primary); box-shadow: none; }
 .body-input {
   background: transparent;
   border: none;
@@ -322,8 +322,8 @@ const save = async (publish) => {
   line-height: 1.8;
   min-height: 480px;
   resize: none;
-  color: var(--black);
-  background: var(--white);
+  color: var(--text);
+  background: var(--surface);
 }
 .body-input:focus { box-shadow: none; }
 
@@ -332,7 +332,7 @@ const save = async (publish) => {
   top: calc(64px + 32px);
 }
 .sidebar-section {
-  background: var(--off-white);
+  background: var(--surface-alt);
   border: 1px solid var(--gray-700);
   border-radius: var(--radius);
   padding: 20px;
@@ -343,7 +343,7 @@ const save = async (publish) => {
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--blue);
+  color: var(--primary);
   margin-bottom: 16px;
 }
 .sidebar-section .form-group { margin-bottom: 12px; }
@@ -359,12 +359,12 @@ const save = async (publish) => {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--white);
+  background: var(--surface);
   transition: border-color 0.15s, background 0.15s;
 }
 .cover-upload-area:not(.has-image):hover {
-  border-color: var(--blue);
-  background: var(--blue-pale);
+  border-color: var(--primary);
+  background: var(--primary-tint);
 }
 .cover-upload-area.has-image { cursor: default; border-style: solid; border-color: var(--gray-600); }
 
@@ -377,7 +377,7 @@ const save = async (publish) => {
   text-align: center;
   pointer-events: none;
 }
-.upload-text { font-size: 0.8rem; font-weight: 600; color: var(--black); }
+.upload-text { font-size: 0.8rem; font-weight: 600; color: var(--text); }
 .upload-sub { font-size: 0.7rem; color: var(--gray-400); }
 
 .cover-preview {
@@ -403,7 +403,7 @@ const save = async (publish) => {
   justify-content: center;
   transition: background 0.15s;
 }
-.cover-remove-btn:hover { background: rgba(232,0,15,0.85); }
+.cover-remove-btn:hover { background: rgba(225,6,0,0.85); }
 
 .upload-progress-wrap {
   display: flex;
@@ -413,7 +413,7 @@ const save = async (publish) => {
 }
 .upload-progress-bar {
   height: 3px;
-  background: var(--blue);
+  background: var(--primary);
   border-radius: 2px;
   transition: width 0.2s ease;
   flex: 1;
@@ -449,7 +449,7 @@ const save = async (publish) => {
   top: 3px; left: 3px;
   transition: transform 0.2s;
 }
-.toggle-check:checked + .toggle-slider { background: var(--blue); }
+.toggle-check:checked + .toggle-slider { background: var(--primary); }
 .toggle-check:checked + .toggle-slider::after { transform: translateX(18px); }
 
 @media (max-width: 900px) {

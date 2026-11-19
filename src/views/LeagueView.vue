@@ -37,7 +37,7 @@
     </section>
 
     <!-- Classes -->
-    <section class="section" style="background:var(--off-white);border-top:1px solid var(--gray-700)">
+    <section class="section" style="background:var(--surface-alt);border-top:1px solid var(--gray-700)">
       <div class="container">
         <div class="accent-line"></div>
         <h2 class="section-title">Racing Classes</h2>
@@ -155,7 +155,7 @@ const classes = [
   },
   {
     name: 'LO206 Light',
-    color: '#E8000F',
+    color: '#E10600',
     desc: 'Briggs LO206 engine class for lighter senior drivers.',
     specs: [
       { k: 'Engine', v: 'Briggs LO206' },
@@ -164,7 +164,7 @@ const classes = [
   },
   {
     name: 'LO206 Senior',
-    color: '#E8000F',
+    color: '#E10600',
     desc: 'Briggs LO206 engine class for senior drivers.',
     specs: [
       { k: 'Engine', v: 'Briggs LO206' },
@@ -173,7 +173,7 @@ const classes = [
   },
   {
     name: 'LO206 Heavy',
-    color: '#E8000F',
+    color: '#E10600',
     desc: 'Briggs LO206 engine class for heavier senior drivers.',
     specs: [
       { k: 'Engine', v: 'Briggs LO206' },
@@ -221,13 +221,13 @@ const pointsTable = [
   overflow: hidden;
 }
 .highlight-item {
-  background: var(--white);
+  background: var(--surface);
   padding: 28px 20px;
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
-.h-val { font-family: var(--font-display); font-size: 2rem; font-weight: 900; color: var(--blue); }
+.h-val { font-family: var(--font-display); font-size: 2rem; font-weight: 900; color: var(--primary); }
 .h-label { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.12em; color: var(--gray-400); text-transform: uppercase; }
 
 .classes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 32px; }
@@ -255,7 +255,7 @@ const pointsTable = [
 }
 .step-num {
   width: 32px; height: 32px;
-  background: var(--blue);
+  background: var(--primary);
   border-radius: 2px;
   display: flex;
   align-items: center;
@@ -291,7 +291,7 @@ const pointsTable = [
 .pt-row:last-child { border-bottom: none; }
 .pt-pos { display: flex; align-items: center; gap: 8px; font-family: var(--font-mono); }
 .trophy { font-size: 1rem; }
-.pt-pts { font-family: var(--font-display); font-size: 1.1rem; font-weight: 900; color: var(--blue); }
+.pt-pts { font-family: var(--font-display); font-size: 1.1rem; font-weight: 900; color: var(--primary); }
 
 
 

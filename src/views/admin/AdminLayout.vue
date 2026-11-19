@@ -13,7 +13,10 @@
       </div>
 
       <nav class="sidebar-nav">
-        <RouterLink v-for="item in navItems" :key="item.to" :to="item.to" class="nav-item" :title="item.label">
+        <!-- Dashboard (/admin) is a prefix of every admin URL, so only highlight it on an exact match -->
+        <RouterLink v-for="item in navItems" :key="item.to" :to="item.to" class="nav-item" :title="item.label"
+          :active-class="item.to === '/admin' ? 'nav-ancestor' : 'router-link-active'"
+          exact-active-class="router-link-active">
           <span class="nav-icon">{{ item.icon }}</span>
           <span v-if="!sidebarCollapsed" class="nav-label">{{ item.label }}</span>
         </RouterLink>
@@ -75,6 +78,7 @@ const navItems = [
   { to: '/admin/blog', icon: '✍️', label: 'Blog Posts' },
   { to: '/admin/events', icon: '📅', label: 'Events' },
   { to: '/admin/shop', icon: '🛒', label: 'Shop / Products' },
+  { to: '/admin/hours', icon: '🕒', label: 'Hours' },
 ]
 
 const pageNames = {
@@ -84,6 +88,7 @@ const pageNames = {
   'admin-blog-edit': 'Edit Post',
   'admin-events': 'Events',
   'admin-shop': 'Shop / Products',
+  'admin-hours': 'Hours of Operation',
   'admin-users': 'Admin Users',
 }
 const currentPageName = computed(() => pageNames[route.name] || 'Admin')
@@ -169,7 +174,7 @@ const handleLogout = async () => {
   white-space: nowrap;
 }
 .nav-item:hover { color: var(--white); background: var(--gray-800); }
-.nav-item.router-link-active { color: var(--red); background: rgba(232,0,15,0.08); }
+.nav-item.router-link-active { color: var(--red); background: rgba(225,6,0,0.08); }
 .nav-icon { font-size: 1rem; width: 20px; text-align: center; flex-shrink: 0; }
 .nav-label { font-size: 0.82rem; }
 

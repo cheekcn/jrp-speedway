@@ -4,7 +4,6 @@
       <RouterLink to="/" class="nav-logo">
         <span class="logo-jrp">JRP</span>
         <span class="logo-speedway">SPEEDWAY</span>
-        <span class="logo-flag">🏁</span>
       </RouterLink>
 
       <div class="nav-links" :class="{ open: menuOpen }">
@@ -23,9 +22,7 @@
         <span></span><span></span><span></span>
       </button>
     </div>
-    <div class="nav-stripe">
-      <span></span><span class="y"></span><span></span><span></span><span></span>
-    </div>
+    <div class="nav-stripe"><span class="red"></span><span class="y"></span><span class="checker-strip"></span></div>
   </nav>
 </template>
 
@@ -45,16 +42,14 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 1000;
-  background: rgba(255,255,255,0.92);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 2px solid transparent;
-  transition: all 0.2s ease;
+  background: rgba(8, 8, 10, 0.7);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  transition: background 0.25s ease, box-shadow 0.25s ease;
 }
 .app-nav.scrolled {
-  background: rgba(255,255,255,0.98);
-  border-bottom-color: var(--blue);
-  box-shadow: 0 4px 20px rgba(12,59,122,0.1);
+  background: rgba(8, 8, 10, 0.94);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
 }
 .nav-inner {
   height: var(--nav-h);
@@ -64,59 +59,73 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
 }
 .nav-logo {
   display: flex;
-  align-items: baseline;
-  gap: 6px;
+  align-items: center;
+  gap: 8px;
   font-family: var(--font-display);
   font-weight: 900;
+  font-style: italic;
   text-transform: uppercase;
 }
 .logo-jrp {
-  font-size: 1.8rem;
-  color: var(--blue);
-  letter-spacing: -0.02em;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--white);
+  background: linear-gradient(100deg, var(--primary), var(--primary-light));
+  padding: 4px 14px 2px 10px;
+  clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+  letter-spacing: 0;
 }
 .logo-speedway {
-  font-size: 1rem;
-  letter-spacing: 0.15em;
-  color: var(--black);
+  font-size: 1.05rem;
+  letter-spacing: 0.18em;
+  color: var(--text);
 }
-.logo-flag { font-size: 1rem; }
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
 }
 .nav-links a {
+  position: relative;
   font-family: var(--font-display);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   padding: 6px 14px;
   color: var(--gray-400);
   transition: color 0.15s;
-  border-radius: 2px;
 }
-.nav-links a:hover,
-.nav-links a.router-link-active:not(.nav-cta) {
-  color: var(--black);
+.nav-links a:not(.nav-cta)::after {
+  content: '';
+  position: absolute;
+  left: 14px; right: 14px;
+  bottom: 0;
+  height: 3px;
+  background: var(--primary);
+  transform: skewX(-30deg) scaleX(0);
+  transition: transform 0.2s ease;
 }
-.nav-links a.router-link-active:not(.nav-cta) {
-  color: var(--blue);
-}
+.nav-links a:not(.nav-cta):hover { color: var(--text); }
+.nav-links a:not(.nav-cta):hover::after { transform: skewX(-30deg) scaleX(0.5); }
+.nav-links a.router-link-active:not(.nav-cta) { color: var(--white); }
+.nav-links a.router-link-active:not(.nav-cta)::after { transform: skewX(-30deg) scaleX(1); }
 .nav-cta {
   margin-left: 12px;
-  padding: 8px 20px !important;
+  padding: 8px 22px !important;
   font-size: 0.8rem !important;
+  color: var(--white) !important;
 }
 
 .nav-stripe {
   display: flex;
   height: 3px;
+  gap: 4px;
 }
-.nav-stripe span { flex: 1; background: var(--blue); }
-.nav-stripe span.y { flex: 0 0 24px; background: var(--yellow); }
+.nav-stripe .red { flex: 1; background: linear-gradient(90deg, transparent, var(--primary) 30%); }
+.nav-stripe .y { flex: 0 0 24px; background: var(--yellow); transform: skewX(-30deg); }
+.nav-stripe .checker-strip { flex: 0 0 120px; height: 3px; background-size: 6px 6px; }
 
 .nav-hamburger {
   display: none;
@@ -130,7 +139,7 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
 .nav-hamburger span {
   display: block;
   width: 24px; height: 2px;
-  background: var(--black);
+  background: var(--text);
   transition: var(--transition);
 }
 
@@ -141,8 +150,9 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
     top: var(--nav-h);
     left: 0; right: 0;
     flex-direction: column;
-    background: var(--white);
-    border-bottom: 1px solid var(--gray-700);
+    align-items: stretch;
+    background: var(--black);
+    border-bottom: 3px solid var(--primary);
     padding: 16px 24px 24px;
     gap: 4px;
     transform: translateY(-100%);
@@ -155,7 +165,11 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
     opacity: 1;
     pointer-events: all;
   }
-  .nav-links a { font-size: 1.1rem; width: 100%; padding: 10px 16px; }
+  .nav-links a { font-size: 1.15rem; width: 100%; padding: 10px 16px; }
+  .nav-links a:not(.nav-cta)::after { left: 0; right: auto; width: 4px; height: 100%; transform: scaleY(0); }
+  .nav-links a.router-link-active:not(.nav-cta)::after { transform: scaleY(1); }
+  .nav-links a:not(.nav-cta):hover::after { transform: scaleY(0.5); }
   .nav-cta { margin-left: 0; margin-top: 8px; width: 100%; justify-content: center; }
+  .logo-speedway { font-size: 0.9rem; }
 }
 </style>

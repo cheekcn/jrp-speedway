@@ -1,6 +1,6 @@
 // src/firebase/services.js
 import {
-  collection, doc, getDocs, getDoc, addDoc, updateDoc,
+  collection, doc, getDocs, getDoc, addDoc, updateDoc, setDoc,
   deleteDoc, query, orderBy, where, serverTimestamp, limit
 } from 'firebase/firestore'
 import {
@@ -83,6 +83,12 @@ export const getProducts = () =>
 export const addProduct = (data) => addDocument('products', data)
 export const updateProduct = (id, data) => updateDocument('products', id, data)
 export const deleteProduct = (id) => deleteDocument('products', id)
+
+// ─── Site settings: hours of operation ──────────────────────────────────────
+// Single document: settings/hours  →  { season, footnote, days: [...7], updatedAt, updatedBy }
+export const getHours = () => getDocById('settings', 'hours')
+export const saveHours = (data) =>
+  setDoc(doc(db, 'settings', 'hours'), { ...data, updatedAt: serverTimestamp() })
 
 // ─── Admin users ────────────────────────────────────────────────────────────
 export const getAdminUsers = () => getCollection('admins')

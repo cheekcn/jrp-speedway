@@ -5,6 +5,8 @@
       <div class="hero-bg">
         <div class="hero-grid"></div>
         <div class="hero-glow"></div>
+        <div class="hero-slash"></div>
+        <div class="hero-lines"></div>
       </div>
       <div class="container hero-content">
         <div class="hero-eyebrow">
@@ -14,9 +16,9 @@
           </span>
         </div>
         <h1 class="hero-title">
-          <span style="color:#ffffff">RACE.</span>
+          <span>RACE.</span>
           <span class="outline">COMPETE.</span>
-          <span class="text-blue" style="color:var(--blue-mid)">WIN.</span>
+          <span class="win">WIN.</span>
         </h1>
         <p class="hero-sub">
           JRP Speedway — Tulsa's most intense outdoor karting experience.
@@ -37,6 +39,7 @@
         </div>
       </div>
       <div class="hero-scroll-hint">SCROLL</div>
+      <div class="checker-strip hero-checker"></div>
     </section>
 
     <!-- ── QUICK NAV CARDS ── -->
@@ -78,24 +81,7 @@
           <div class="why-visual">
             <div class="track-diagram">
               <div class="track-label">JRP LAYOUT</div>
-              <svg viewBox="0 0 680 420" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <marker id="arr-h" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
-                    <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </marker>
-                </defs>
-                <path d="M 120 80 C 80 80, 46 96, 46 130 C 46 164, 46 175, 46 200 C 46 225, 46 236, 46 270 C 46 304, 80 320, 120 320 L 560 320 C 596 320, 616 305, 616 280 C 616 255, 596 244, 560 244 L 260 244 C 240 244, 224 232, 224 214 C 224 206, 224 200, 224 200 C 224 200, 224 194, 224 186 C 224 168, 240 156, 260 156 L 560 156 C 596 156, 616 145, 616 120 C 616 95, 596 80, 560 80 Z"
-                  fill="none" stroke="#111" stroke-width="62" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M 120 80 C 80 80, 46 96, 46 130 C 46 164, 46 175, 46 200 C 46 225, 46 236, 46 270 C 46 304, 80 320, 120 320 L 560 320 C 596 320, 616 305, 616 280 C 616 255, 596 244, 560 244 L 260 244 C 240 244, 224 232, 224 214 C 224 206, 224 200, 224 200 C 224 200, 224 194, 224 186 C 224 168, 240 156, 260 156 L 560 156 C 596 156, 616 145, 616 120 C 616 95, 596 80, 560 80 Z"
-                  fill="none" stroke="#2d2d2d" stroke-width="54" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M 120 80 C 80 80, 46 96, 46 130 C 46 164, 46 175, 46 200 C 46 225, 46 236, 46 270 C 46 304, 80 320, 120 320 L 560 320 C 596 320, 616 305, 616 280 C 616 255, 596 244, 560 244 L 260 244 C 240 244, 224 232, 224 214 C 224 206, 224 200, 224 200 C 224 200, 224 194, 224 186 C 224 168, 240 156, 260 156 L 560 156 C 596 156, 616 145, 616 120 C 616 95, 596 80, 560 80 Z"
-                  fill="none" stroke="#E8000F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 6" opacity="0.85"/>
-                <line x1="440" y1="80" x2="300" y2="80" stroke="#E8000F" stroke-width="1.8" marker-end="url(#arr-h)" opacity="0.9"/>
-                <line x1="300" y1="200" x2="440" y2="200" stroke="#E8000F" stroke-width="1.8" marker-end="url(#arr-h)" opacity="0.9"/>
-                <line x1="300" y1="320" x2="440" y2="320" stroke="#E8000F" stroke-width="1.8" marker-end="url(#arr-h)" opacity="0.9"/>
-                <line x1="340" y1="53" x2="340" y2="107" stroke="#FFD000" stroke-width="3.5"/>
-                <text x="340" y="44" text-anchor="middle" font-family="monospace" font-size="9" fill="#FFD000" font-weight="bold">S/F</text>
-              </svg>
+              <TrackMap />
             </div>
           </div>
         </div>
@@ -135,10 +121,10 @@
     <!-- ── CTA BANNER ── -->
     <section class="cta-banner">
       <div class="container cta-inner">
-        <h2>Ready to <span class="text-red">go flat out?</span></h2>
+        <h2>Ready to <span class="text-yellow">go flat out?</span></h2>
         <p>Book a rental session or register for a league race.</p>
         <div style="display:flex;gap:16px;flex-wrap:wrap">
-          <RouterLink to="/rentals" class="btn btn-primary">Book Now</RouterLink>
+          <RouterLink to="/rentals" class="btn btn-yellow">Book Now</RouterLink>
           <RouterLink to="/league" class="btn btn-outline cta-outline-btn">Join the League</RouterLink>
         </div>
       </div>
@@ -149,6 +135,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { getUpcomingEvents } from '@/firebase/services'
+import TrackMap from '@/components/TrackMap.vue'
 
 const revLevel = ref(3)
 const upcomingEvents = ref([])
@@ -206,25 +193,66 @@ const formatDay = (ts) => {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: var(--black);
+  background: var(--carbon);
+  background-color: var(--black);
+  background-size: 20px 20px;
+  overflow: hidden;
+}
+.hero-slash {
+  position: absolute;
+  top: -10%;
+  right: -5%;
+  width: 27%;
+  height: 130%;
+  background: linear-gradient(160deg, var(--primary-light) 0%, var(--primary) 45%, var(--primary-dark) 100%);
+  transform: skewX(-12deg);
+  opacity: 0.9;
+  box-shadow: -40px 0 120px rgba(225, 6, 0, 0.45);
+}
+.hero-slash::before {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  left: -48px;
+  width: 18px;
+  background: var(--yellow);
+}
+.hero-slash::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  left: -86px;
+  width: 8px;
+  background: var(--primary);
+}
+.hero-lines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(-72deg, transparent 0 80px, rgba(255,255,255,0.03) 80px 82px);
+}
+.hero-checker {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 16px;
+  background-size: 16px 16px;
+  z-index: 2;
 }
 .hero-grid {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(232,0,15,0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(232,0,15,0.07) 1px, transparent 1px);
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
   background-size: 60px 60px;
   mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black, transparent);
 }
 .hero-glow {
   position: absolute;
-  top: -20%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60%;
-  height: 60%;
-  background: radial-gradient(ellipse, rgba(12,59,122,0.15) 0%, transparent 70%);
+  top: 10%;
+  left: -10%;
+  width: 70%;
+  height: 80%;
+  background: radial-gradient(ellipse, rgba(225,6,0,0.18) 0%, transparent 65%);
 }
 .hero-content {
   position: relative;
@@ -257,9 +285,9 @@ const formatDay = (ts) => {
 .rev-bar:nth-child(6) { height: 17px; }
 .rev-bar:nth-child(7) { height: 18px; }
 .rev-bar:nth-child(8) { height: 20px; }
-.rev-bar.active { background: var(--blue); }
-.rev-bar:nth-child(7).active,
-.rev-bar:nth-child(8).active { background: var(--blue-mid); }
+.rev-bar.active { background: #00D26A; color: #00D26A; box-shadow: 0 0 8px currentColor; }
+.rev-bar:nth-child(n+4).active { background: var(--yellow); color: var(--yellow); }
+.rev-bar:nth-child(n+7).active { background: var(--primary-light); color: var(--primary-light); }
 
 .hero-title {
   font-size: clamp(4rem, 12vw, 10rem);
@@ -269,9 +297,14 @@ const formatDay = (ts) => {
   gap: 4px;
   margin-bottom: 28px;
 }
+.hero-title { font-style: italic; color: var(--white); }
 .hero-title .outline {
   -webkit-text-stroke: 2px var(--white);
   color: transparent;
+}
+.hero-title .win {
+  color: var(--primary-bright);
+  text-shadow: 0 0 60px rgba(225, 6, 0, 0.5);
 }
 .hero-sub {
   font-size: 1.1rem;
@@ -292,11 +325,12 @@ const formatDay = (ts) => {
   gap: 24px;
   flex-wrap: wrap;
 }
-.stat { display: flex; flex-direction: column; gap: 2px; }
+.stat { display: flex; flex-direction: column; gap: 2px; padding-left: 12px; border-left: 3px solid var(--primary); }
 .stat-val {
   font-family: var(--font-display);
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: 900;
+  font-style: italic;
   line-height: 1;
   color: var(--white);
 }
@@ -307,11 +341,7 @@ const formatDay = (ts) => {
   color: var(--gray-400);
   text-transform: uppercase;
 }
-.stat-divider {
-  width: 1px;
-  height: 36px;
-  background: var(--gray-700);
-}
+.stat-divider { display: none; }
 .hero-scroll-hint {
   position: absolute;
   bottom: 32px;
@@ -319,7 +349,7 @@ const formatDay = (ts) => {
   font-family: var(--font-mono);
   font-size: 0.65rem;
   letter-spacing: 0.2em;
-  color: var(--blue-mid);
+  color: var(--primary-bright);
   writing-mode: vertical-rl;
   display: flex;
   align-items: center;
@@ -333,7 +363,7 @@ const formatDay = (ts) => {
 }
 
 /* ── Quick nav ── */
-.quick-nav { background: var(--off-white); border-top: 1px solid var(--gray-700); border-bottom: 1px solid var(--gray-700); }
+.quick-nav { background: var(--surface-alt); border-top: 1px solid var(--gray-700); border-bottom: 1px solid var(--gray-700); }
 .qnav-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -344,15 +374,26 @@ const formatDay = (ts) => {
   overflow: hidden;
 }
 .qnav-card {
-  background: var(--white);
+  position: relative;
+  background: var(--surface);
   padding: 28px 24px;
   display: flex;
   align-items: center;
   gap: 16px;
-  transition: background 0.15s;
+  transition: background 0.2s;
 }
-.qnav-card:hover { background: var(--off-white); }
-.qnav-card:hover .qnav-arrow { transform: translateX(4px); color: var(--blue); }
+.qnav-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 4px;
+  background: var(--primary);
+  transform: scaleY(0);
+  transition: transform 0.25s ease;
+}
+.qnav-card:hover { background: var(--gray-900); }
+.qnav-card:hover::before { transform: scaleY(1); }
+.qnav-card:hover .qnav-arrow { transform: translateX(6px); color: var(--primary-bright); }
 .qnav-icon { font-size: 1.8rem; }
 .qnav-info h3 {
   font-size: 1rem;
@@ -384,15 +425,16 @@ const formatDay = (ts) => {
   color: var(--gray-200);
 }
 .check {
-  color: var(--blue);
+  color: var(--primary);
   font-weight: 700;
   font-size: 0.9rem;
 }
 .track-diagram {
-  background: var(--black);
-  border: 1px solid #1a3260;
-  border-radius: 2px;
-  padding: 32px;
+  background: radial-gradient(ellipse at 50% 40%, #15151a, var(--black) 75%);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+  border: 1px solid var(--gray-700);
+  border-radius: 4px;
+  padding: 44px 20px 20px;
   position: relative;
 }
 .track-label {
@@ -402,11 +444,11 @@ const formatDay = (ts) => {
   font-family: var(--font-mono);
   font-size: 0.65rem;
   letter-spacing: 0.2em;
-  color: var(--blue-mid);
+  color: var(--primary-bright);
 }
 
 /* ── Events teaser ── */
-.events-teaser { background: var(--off-white); border-top: 1px solid var(--gray-700); border-bottom: 1px solid var(--gray-700); }
+.events-teaser { background: var(--surface-alt); border-top: 1px solid var(--gray-700); border-bottom: 1px solid var(--gray-700); }
 .tease-header {
   display: flex;
   align-items: flex-end;
@@ -427,7 +469,7 @@ const formatDay = (ts) => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: var(--blue);
+  background: linear-gradient(160deg, var(--primary-light), var(--primary-dark));
   padding: 10px 14px;
   border-radius: 2px;
   min-width: 56px;
@@ -462,39 +504,56 @@ const formatDay = (ts) => {
 
 /* ── CTA ── */
 .cta-banner {
-  background: var(--blue);
-  border-top: 1px solid var(--blue-dark);
-  border-bottom: 1px solid var(--blue-dark);
+  position: relative;
+  overflow: hidden;
+  background:
+    repeating-linear-gradient(-60deg, transparent 0 40px, rgba(0,0,0,0.08) 40px 80px),
+    linear-gradient(100deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+}
+.cta-banner::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0; right: 0;
+  width: 40%;
+  background: var(--checker) 0 0 / 28px 28px;
+  opacity: 0.18;
+  mask-image: linear-gradient(90deg, transparent, black);
+  -webkit-mask-image: linear-gradient(90deg, transparent, black);
 }
 .cta-inner {
-  padding: 72px 24px;
+  position: relative;
+  z-index: 1;
+  padding: 80px 24px;
 }
-.cta-inner h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 12px; }
+.cta-inner h2 { font-size: clamp(2.2rem, 5vw, 3.6rem); margin-bottom: 12px; color: var(--white); }
 
 /* Hero outline button — on dark background needs white styling */
 .hero-outline-btn {
   color: var(--white) !important;
-  border-color: rgba(255,255,255,0.6) !important;
+  box-shadow: inset 0 2px 0 rgba(255,255,255,0.6), inset 0 -2px 0 rgba(255,255,255,0.6) !important;
+  background: rgba(255,255,255,0.1) !important;
 }
 .hero-outline-btn:hover {
   color: var(--white) !important;
-  border-color: var(--white) !important;
+  box-shadow: inset 0 2px 0 var(--white), inset 0 -2px 0 var(--white) !important;
   background: rgba(255,255,255,0.1) !important;
 }
 
 /* CTA outline button — on navy background, white styling that stays visible on hover */
 .cta-outline-btn {
   color: var(--white) !important;
-  border-color: rgba(255,255,255,0.6) !important;
+  box-shadow: inset 0 2px 0 rgba(255,255,255,0.6), inset 0 -2px 0 rgba(255,255,255,0.6) !important;
+  background: rgba(255,255,255,0.1) !important;
 }
 .cta-outline-btn:hover {
   color: var(--white) !important;
-  border-color: var(--white) !important;
+  box-shadow: inset 0 2px 0 var(--white), inset 0 -2px 0 var(--white) !important;
   background: rgba(255,255,255,0.15) !important;
 }
-.cta-inner p { color: rgba(255,255,255,0.7); margin-bottom: 28px; }
+.cta-inner p { color: rgba(255,255,255,0.85); margin-bottom: 28px; font-size: 1.1rem; }
 
 @media (max-width: 900px) {
+  .hero-slash { width: 40%; right: -30%; opacity: 0.35; }
   .why-layout { grid-template-columns: 1fr; gap: 40px; }
   .tease-header { flex-direction: column; align-items: flex-start; gap: 16px; }
 }

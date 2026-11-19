@@ -115,8 +115,8 @@ const handleLogin = async () => {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(232,0,15,0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(232,0,15,0.06) 1px, transparent 1px);
+    linear-gradient(rgba(225,6,0,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(225,6,0,0.06) 1px, transparent 1px);
   background-size: 48px 48px;
 }
 .login-text {

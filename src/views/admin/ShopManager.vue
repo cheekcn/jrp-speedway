@@ -360,11 +360,11 @@ const doDelete = async () => {
 .product-admin-card { display: flex; flex-direction: column; }
 .product-img { height: 160px; background: var(--gray-700); overflow: hidden; }
 .product-img img { width: 100%; height: 100%; object-fit: cover; }
-.product-img-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; background: var(--off-white); }
+.product-img-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; background: var(--surface-alt); }
 .product-details { padding: 16px 20px; flex: 1; }
 .product-meta-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
 .product-details h3 { font-size: 0.9rem; letter-spacing: 0.03em; margin-bottom: 4px; }
-.product-price { font-family: var(--font-display); font-size: 1.2rem; font-weight: 900; color: var(--blue); }
+.product-price { font-family: var(--font-display); font-size: 1.2rem; font-weight: 900; color: var(--primary); }
 .product-row-actions { display: flex; gap: 8px; padding: 12px 20px; border-top: 1px solid var(--gray-700); }
 
 /* ── Image upload ── */
@@ -378,11 +378,11 @@ const doDelete = async () => {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--off-white);
+  background: var(--surface-alt);
 }
 .image-upload-area:not(.has-image):hover {
-  border-color: var(--blue);
-  background: var(--blue-pale);
+  border-color: var(--primary);
+  background: var(--primary-tint);
 }
 .image-upload-area.has-image { cursor: default; border-style: solid; border-color: var(--gray-600); }
 
@@ -396,7 +396,7 @@ const doDelete = async () => {
   pointer-events: none;
 }
 .upload-icon { font-size: 2rem; }
-.upload-text { font-size: 0.9rem; font-weight: 600; color: var(--black); }
+.upload-text { font-size: 0.9rem; font-weight: 600; color: var(--text); }
 .upload-sub { font-size: 0.75rem; color: var(--gray-400); }
 
 .image-preview {
@@ -423,7 +423,7 @@ const doDelete = async () => {
   transition: background 0.15s;
   z-index: 1;
 }
-.image-remove-btn:hover { background: rgba(232,0,15,0.85); }
+.image-remove-btn:hover { background: rgba(225,6,0,0.85); }
 
 .upload-progress-wrap {
   display: flex;
@@ -433,7 +433,7 @@ const doDelete = async () => {
 }
 .upload-progress-bar {
   height: 4px;
-  background: var(--blue);
+  background: var(--primary);
   border-radius: 2px;
   transition: width 0.2s ease;
   flex: 1;
@@ -442,9 +442,9 @@ const doDelete = async () => {
 
 /* ── Modal ── */
 .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.7); display: flex; align-items: center; justify-content: center; z-index: 200; padding: 20px; overflow-y: auto; }
-.modal { background: var(--white); border: 1px solid var(--gray-700); border-radius: var(--radius); padding: 32px; max-width: 440px; width: 100%; }
+.modal { background: var(--surface); border: 1px solid var(--gray-700); border-radius: var(--radius); padding: 32px; max-width: 440px; width: 100%; }
 .large-modal { max-width: 700px; }
-.modal h3 { font-size: 1.2rem; margin-bottom: 20px; color: var(--black); }
+.modal h3 { font-size: 1.2rem; margin-bottom: 20px; color: var(--text); }
 .modal p { font-size: 0.9rem; color: var(--gray-400); margin-bottom: 24px; }
 .modal-actions { display: flex; gap: 12px; justify-content: flex-end; margin-top: 20px; }
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }

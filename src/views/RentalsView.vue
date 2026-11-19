@@ -85,7 +85,7 @@
             <div v-for="pkg in groupPackages" :key="pkg.name" class="pkg-card card">
               <span class="pkg-icon">{{ pkg.icon }}</span>
               <h4>{{ pkg.name }}</h4>
-              <a href="mailto:info@jrpspeedway.com" class="btn btn-outline" style="padding:6px 14px;font-size:0.75rem;margin-top:4px">Contact for Pricing</a>
+              <a href="mailto:info@jrpspeedway.com" class="btn btn-outline" style="padding:6px 20px;font-size:0.75rem;margin-top:4px;flex-shrink:0">Contact for Pricing</a>
               <p>{{ pkg.desc }}</p>
             </div>
           </div>
@@ -119,7 +119,7 @@ const kartTypes = [
   {
     name: 'Adult Kart',
     tag: 'ADULT',
-    color: '#E8000F',
+    color: '#E10600',
     tagline: 'Full-power single-seat machines for serious drivers',
     specs: [
       "5'0\" (60\") height minimum",
@@ -218,10 +218,10 @@ const faqs = reactive([
   gap: 20px;
   margin-top: 32px;
 }
-.rate-card { padding: 28px 24px; position: relative; }
+.rate-card { padding: 28px 24px; position: relative; overflow: visible; }
 .rate-card.featured {
   border-color: var(--red);
-  box-shadow: 0 0 0 1px var(--red), 0 12px 40px rgba(232,0,15,0.15);
+  box-shadow: 0 0 0 1px var(--red), 0 12px 40px rgba(225,6,0,0.15);
 }
 .rate-popular {
   position: absolute;
